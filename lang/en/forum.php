@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
 	<?php
 		if(!isset($_SESSION['userID'])){
-		    echo "<script>location.href='login.php';</script>";
+			echo "<script>location.href='login.php';</script>";
 		}
 		$_SESSION['pages']="forum.php";
 		$page_title="forum";

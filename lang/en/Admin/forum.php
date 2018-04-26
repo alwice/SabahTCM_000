@@ -32,6 +32,7 @@
 		</br></br>
 		<div class="content" style="margin-right: 15%">
 			<form action="" method="get">
+				<p><button class="form-control" name="review_topic" value="review_topic" type="submit" style="margin-left" formaction="review_topic.php">Review Topic</button></p>
 				<?php
 					$cat=mysqli_query($conn,"SELECT * FROM category")or die(mysqli_error($conn));
 					while($row=mysqli_fetch_array($cat)){

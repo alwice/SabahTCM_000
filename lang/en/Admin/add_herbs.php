@@ -79,7 +79,7 @@
 				<!--Scientific Name-->
 				<div class="form-group">
 					<label style="padding-left: 18.2%">Scientific Name:</label>
-					<input style="width:50%" type="text" data-toggle="tooltip" data-placement="right" title="Fillin the Scientific Name" class="form-control" value="<?php if(isset($sci_name)) echo $sci_name;?>" name="sci_name" placeholder="Herbs' Scientific Name" required />
+					<input style="width:50%" type="text" data-toggle="tooltip" data-placement="right" title="Fillin the Scientific Name" class="form-control" value="<?php if(isset($sci_name)) echo $sci_name;?>" name="sci_name" placeholder="Herbs' Scientific Name" required autofocus/>
 				</div>
 				<br><br>
 						

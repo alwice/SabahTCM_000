@@ -55,10 +55,10 @@
 					<textarea style="width:350px; height:160px" type="text-box" class="form-control" name="topic_details" placeholder="Details of Topic" required ></textarea>
 				</div>
 				<br><br>
-				
+				<p style="text-align: center;">**The Topic will only shown in Forum after reviewed by admin.**</p>
 				<div class="control-group">
-					<div class="controls" style="padding-left: 250px" >
-					<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;Save</button>
+					<div class="controls" style="padding-left: 250px">
+						<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;Save</button>
 					</div>
 				</div>
 		    </form>					

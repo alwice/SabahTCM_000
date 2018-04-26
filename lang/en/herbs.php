@@ -66,10 +66,11 @@
 						<div id="enlargeImg" class="enlarge">
 							<!--Close button-->
 						  	<span class="closeImg">&times;</span>
-						  	<!--Content-->
-						  	<img class="largeImg" id="bigImg">
 						  	<!--Caption-->
 						  	<div id="caption"></div>
+						  	<!--Content-->
+						  	<img class="largeImg" id="bigImg">
+						  	
 						</div>
 
 						<p style="padding-bottom:1%"><b> Local Name: </b><?php echo $herb_name;?></p>
