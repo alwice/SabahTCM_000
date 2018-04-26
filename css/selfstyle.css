@@ -1,0 +1,124 @@
+/*style to top btn*/
+#topBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#topBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/*style the img (small img) to trigger*/
+#herbImg {
+    border-radius: 5px;
+    cursor: zoom-in;
+    transition: 0.3s;
+}
+
+#herbImg:hover {
+    opacity: 0.5;
+}
+
+/* The Modal (background) */
+.enlarge {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 2%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 90%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.largeImg {
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 700px;
+}
+/*.largeImg:hover {
+    cursor: zoom-in;
+}*/
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 10px 0;
+    height: 50px;
+}
+
+/* Add Animation */
+.largeImg, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.closeImg {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.closeImg:hover,
+.closeImg:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .largeImg {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 0 0 0;
+      }
+    .form-inline div.form-group label{
+        margin: center;
+    }
+}
