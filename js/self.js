@@ -71,12 +71,18 @@ function enlarge(){
 	span.onclick = function() { 
 	    modal.style.display = "none";
 	}
-	//escape key
+	//escape key close the modal
 	document.onkeydown = function(e){
 	    e = e || window.event;
 	    if(e.keyCode == 27){ //Esc
 	        modal.style.display = "none";
 	    }
 	};
+	//outside modal close the modal
+	window.onclick = function(e){
+		if(e.target == modal){
+			modal.style.display ="none";
+		}
+	}
 }
 /*End enlarge img*/

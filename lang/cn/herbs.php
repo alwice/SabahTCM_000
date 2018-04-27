@@ -58,7 +58,18 @@
 						<!--print herb_list-->
 						<h3 class="first"><?php echo $herb_name;?></h3>
 						</br>
-						<p><img style="width:250px; height:250px; float:right;margin:0px 0px 0px 10px" src="../../pics/<?php echo $image;?>"></p>
+						<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right; margin:5% 0px 0px 5%; max-height: 200px; object-fit: cover;" src="../../../pics/<?php echo $image;?>" onclick="enlarge();"/>
+
+						<!-- The Modal -->
+						<div id="enlargeImg">
+							<!--Close button-->
+						  	<span class="closeImg">&times;</span>  	
+						  	<!--Content-->
+						  	<img id="bigImg">
+						  	<!--Caption-->
+						  	<div id="caption"></div>
+						</div>
+						
 						<p style="padding-bottom:4px"><b> 名称：</b><?php echo $herb_name;?></p>
 						<p style="padding-bottom:4px"><b> 别称：</b><?php echo $other_name;?></p>
 						<p style="padding-bottom:4px"><b> 学名：</b><i><?php echo $sci_name;?></i></p>		

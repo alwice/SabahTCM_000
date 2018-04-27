@@ -64,17 +64,16 @@
 						</br>
 
 						<!--print herb_list-->
-						<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right;margin:5% 0px 0px 5px;" src="../../../pics/<?php echo $image;?>" onclick="enlarge();"/>
+						<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right; margin:5% 0px 0px 5%; max-height: 200px; object-fit: cover;" src="../../../pics/<?php echo $image;?>" onclick="enlarge();"/>
 
 						<!-- The Modal -->
-						<div id="enlargeImg" class="enlarge">
+						<div id="enlargeImg">
 							<!--Close button-->
-						  	<span class="closeImg">&times;</span>
+						  	<span class="closeImg">&times;</span>  	
+						  	<!--Content-->
+						  	<img id="bigImg">
 						  	<!--Caption-->
 						  	<div id="caption"></div>
-						  	<!--Content-->
-						  	<img class="largeImg" id="bigImg">
-						  	
 						</div>
 
 						<p style="padding-bottom:1%"><b> Local Name: </b><?php echo $herb_name;?></p>
