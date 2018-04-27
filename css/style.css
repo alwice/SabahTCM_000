@@ -54,11 +54,11 @@ p a:hover {
 #header div div#logo div {
 	background: rgba(223, 255, 223, .3);
 	width: 100%;
-	font-family: Impact;
 }
 #header div div#logo div p{
-	font-size:40px;
+	font-size:50px;
 	color:green;
+	font-family: Impact;
 }
 
 #header div div#navigation {

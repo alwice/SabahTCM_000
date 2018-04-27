@@ -86,7 +86,7 @@
 			<div id="logo" style="text-align:center; padding: 20px 0px 0px 0px;">
 				<p></p>
 				<div>
-					<p style="font-size:50px;">SABAH TRADITIONAL CHINESE MEDICINE DATABASE</p>
+					<p>SABAH TRADITIONAL CHINESE MEDICINE DATABASE</p>
 				</div></a>
 				<p style="text-align:left;font-size:25px">&nbsp;</p>
 			</div>
