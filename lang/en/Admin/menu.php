@@ -7,6 +7,7 @@
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet"> <!--Bootstrap-->	
 	<link href="../../../css/style.css" rel="stylesheet" type="text/css" />
 	<link href="../../../css/selfstyle.css" rel="stylesheet" type="text/css" >	
+	<link href="https://www.w3schools.com/w3css/3/w3.css" rel="stylesheet" type="text/css" >
 	<script src="../../../js/jquery-3.1.1.min.js"></script> 
 	<script src="../../../js/self.js"></script>
 		

@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="herbs.php";
 		$page_title="herbs";
@@ -58,6 +57,8 @@
 						}
 				?>
 						<!--print herb_list-->
+						<h3 class="first"><?php echo $herb_name;?></h3>
+						</br>
 						<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right; margin:5% 0px 0px 5%; max-height: 200px; object-fit: cover;" src="../../../pics/<?php echo $image;?>" onclick="enlarge();"/>
 
 						<!-- The Modal -->
