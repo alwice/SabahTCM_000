@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
-	<link href="../../images/logo2.png" rel="icon" > <!--Icon-->
+	<link href="../../images/logo3.png" rel="icon" > <!--Icon-->
 	<link href="../../css/font-awesome.css" rel="stylesheet" > <!--font-awsome icon-->
 	<link href="../../css/docs.css" rel="stylesheet" > <!--doc css-->
 	<link href="../../css/bootstrap.min.css" rel="stylesheet"> <!--Bootstrap-->
@@ -18,7 +18,7 @@
 		 
 		  	function listFilter(search, list) {
 				var form = $("<form>").attr({"class":"filterform","action":"#"}),
-				input = $("<input>").attr({"class":"filterinput form-control","type":"text","placeholder":"Search"}).css('margin-top','15px','font-size','15px');
+				input = $("<input>").attr({"class":"filterinput form-control","type":"text","placeholder":"Search"}).css('margin-top','2%','font-size','15px');
 				$(form).append(input).appendTo(search);
 				$(input)
 				.change(function(){
@@ -81,9 +81,9 @@
 		&nbsp;&nbsp;|||&nbsp;&nbsp;
 		<a href="../cn/<?php echo $_SESSION['pages'];?>"><img src="../../images/cn.ico">&nbsp;CN</a></p>
 		<div>	
-			<a href="index.php"><img style="width:120px; height:95px; float:left;margin: 20px 0px 0px 0px; padding-left:20px;" src="../../images/logo2.png">
-			
-			<div id="logo" style="text-align:center; padding: 20px 0px 0px 0px;">
+			<a href="index.php"><img src="../../images/logo3.png">
+				<span class='seperater'></span>
+			<div id="logo">
 				<p></p>
 				<div>
 					<p>SABAH TRADITIONAL CHINESE MEDICINE DATABASE</p>

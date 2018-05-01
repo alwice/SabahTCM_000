@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
 	<?php
 		$_SESSION['pages']="about.php";
 		$page_title="information";
@@ -25,11 +26,6 @@
 			<h3>联系我们</h3>
 			<p>开发者：Neoh Yee Jin&nbsp;<i style="padding-left: 47px" class="icon-envelope icon-large"></i>&nbsp;alwice@hotmail.com</p>
 			<p>监督者：Dr. Aslina Baharum&nbsp;<i style="padding-left: 10px" class="icon-envelope icon-large"></i>&nbsp;aslina@ums.edu.my</p>
-
-
-
-
-
 		</div>
 		</br></br>
 	</div>

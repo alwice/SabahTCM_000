@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['category']=$_GET['category'];
 
@@ -136,7 +137,6 @@
 						<td colspan="6">&nbsp;</td>
 					</tr></tfoot>
 				</table>
-				</br></br>
 		</div>
 	</div>
 	<?php

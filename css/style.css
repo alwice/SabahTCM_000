@@ -1,9 +1,10 @@
 /* Website template by freewebsitetemplates.com */
+/*@media (min-width: 688px){*/
 html { overflow-y: scroll; }
+
 
 body {
 	background: url(../images/bg.png) repeat;
-	/*color: #878785;*/
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	position: absolute;
@@ -40,41 +41,46 @@ p a:hover {
 }
 
 #header div {
-	background: url(../images/background.jpg);
+	/*background: url(../images/background1.jpg);*/
 	background-color: white;
 	margin: center;
 	width: 100%;
 }
+#header div img{
+	width: 10%!important;
+	height: auto;
+	float:left;
+	margin: 2% 0px 0px 0px; 
+	padding-left:2%;
+}
+#header div span.seperater{
+	display: none;
+}
 
-#header div div#logo {
-	padding: 30px 0 25px;
+#logo {
+	padding: 20px 0px 0px 0px;
 	width: auto;
 }
 
-#header div div#logo div {
+#logo div {
 	background: rgba(223, 255, 223, .3);
 	width: 100%;
+	font-family: Impact;
+	text-align:center;
 }
-#header div div#logo div p{
+#logo div p{
 	font-size:50px;
 	color:green;
-	font-family: Impact;
 }
 
-#header div div#navigation {
+#navigation {
 	background: url(../images/bg-nav-left-curve.gif) no-repeat left top;
-	padding-left: 6px;
-	width: auto;
-}
-
-#header div div#navigation div {
-	background: url(../images/bg-nav-right-curve.gif) no-repeat right top;
 	padding-left: 0;
 	padding-right: 6px;
 	width: auto;
 }
 
-#header div div#navigation div ul {
+#navigation div ul {
 	background: url(../images/bg-navigation.gif) repeat-x;
 	height: 40px;
 	line-height: 40px;
@@ -83,13 +89,12 @@ p a:hover {
 	padding: 0 0 0 20px;
 }
 
-#header div div#navigation div ul li {
+#navigation div ul li {
 	float: left;
-	/*padding: 0 40px;*/
 	width:25%;
 }
 
-#header div div#navigation div ul li a {
+#navigation div ul li a {
 	color: #78707d;
 	display: block;
 	line-height: 40px;
@@ -99,22 +104,78 @@ p a:hover {
 	width:auto;
 }
 
-#header div div#navigation div ul li.current a,
-#header div div#navigation div ul li a:hover {
-	background: lightblue -91px;
+#navigation div ul li.current a {
+	background: lightblue;
 	color: #a62599;
 	text-shadow: 0 1px #fefffa;
 }
 
-#body {
-	width: 100%;
+#navigation div ul li a:hover {
+	background: lightblue;
+	opacity: 0.6;
+}
+@media screen and (max-width: 767px){
+	#header div img{
+		width: 20%!important;
+		height: auto;
+		float: none;
+		margin: 2% 0% 0% 40%; 
+	}
+	#header div span.seperater{
+		display: block;
+	}
+	#logo {
+	padding: 0px 0px 0px 0px;
+	width: auto;
+	}
+
+	#logo div {
+		background: rgba(223, 255, 223, .3);
+		width: 100%;
+		font-family: Impact;
+		text-align:center;
+	}
+	#logo div p{
+		font-size:35px;
+		color:green;
+	}
+
+	#navigation {
+		background: url(../images/bg-nav-left-curve.gif);
+		padding: 0px 0px 0px 0px;;
+		width: 100%;
+	}
+
+	#navigation div ul li {
+		background: url(../images/bg-navigation.gif) repeat-x;
+		width:100%;
+	}
+
+	#navigation div ul li a {
+		color: #78707d;
+		display: block;
+		line-height: 40px;
+		text-align: center;	
+		text-decoration: none;
+		text-shadow: 0 1px #f8f8fa;
+		width:auto;
+	}
+
+	#navigation div ul li.current a {
+		background: lightblue;
+		color: #a62599;
+		text-shadow: 0 1px #fefffa;
+	}
+
+	#navigation div ul li a:hover {
+		background: lightblue;
+		opacity: 0.6;
+	}
 }
 
-div.body {
-/*	background: url(../images/bg-footer.gif) repeat;*/
-	padding-bottom: 40px;
-	
-	
+#body {
+	width: 100%;
+	padding-bottom: 40px;	
 }
 
 #body div#home {
@@ -138,25 +199,34 @@ div.body {
 	font-weight: bold;
 }
 
-
 #body div#home div.sidebar,
 #body div#main div.sidebar {
 	float: left;
-    margin: 10px 0 0 30px;
 	width: 25%;
 }
 #body div#home div.sidebar img{
-	margin: 30px 10px 55px 0px;
+	margin: 10% 10% 10% 10%;
 	width: 100%;
 	height: auto;
 }
 
-#body div#home div.sidebar ul,
-#body div#main div.sidebar ul {
+@media (min-width: 1200px){
+	#body div#home div.sidebar ul,
+	#body div#main div.sidebar ul {
+		list-style: none;
+		margin-left: 1%;
+		margin-right: -30%;
+		padding: 0;
+	}
+}
+@media (max-width: 1199px){
+	#body div#home div.sidebar ul,
+	#body div#main div.sidebar ul {
 	list-style: none;
-	margin-left: 10px;
-	margin-right: -40px;
+	margin-left: 1%;
+	margin-right: -7%;
 	padding: 0;
+	}
 }
 
 #body div#home div.sidebar ul li,
@@ -168,16 +238,10 @@ div.body {
 
 #body div#home div.sidebar ul li.first,
 #body div#main div.sidebar ul li.first {
-	margin: 0
-}
-
-#body div#home div.sidebar ul li h3,
-#body div#main div.sidebar ul li h3,
-#footer div.section ul li h3 {
+	margin: 0;
 	color: #626075;
 	font-size: 20px;
 	font-weight: normal;
-	margin: 0 0 10px;
 }
 
 #body div#home div.sidebar ul li img,
@@ -795,3 +859,4 @@ div.body div div.content ul li div h1 a:hover {
 	text-align: center;
 	text-shadow: 0 1px #353446;
 }
+/*}*/

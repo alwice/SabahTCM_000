@@ -2,12 +2,12 @@
 <!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
+	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
 	<?php
 		$_SESSION['pages']="index.php";
 		$page_title="index";
 		include("menu.php");
 	?>
-	<meta charset="UTF-8">
 	<title>首頁 - SabahTCM</title>
 </head>
 <body>
@@ -15,8 +15,7 @@
 		</br>
 		<div style="border-radius:12px" id="home">
 			<div class="sidebar">
-				<img src="../../../images/home.jpg" alt="Image">	
-				<!-- <img style="width:300px; height:300px; float:right;margin:10px 10px 55px 0px" src="../../images/home2.jpg" alt="Image"> -->
+				<img src="../../../images/home.jpg" alt="Image">
 			</div>
 			<div class="content">
 			</br>

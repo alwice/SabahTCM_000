@@ -1,13 +1,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
-	<link href="../../../images/logo2.png" rel="icon" /> <!--Icon-->
+	<link href="../../../images/logo3.png" rel="icon" /> <!--Icon-->
 	<link href="../../../css/font-awesome.css" rel="stylesheet" /> <!--font-awsome icon-->
 	<link href="../../../css/docs.css" rel="stylesheet" /> <!--doc css-->
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet"> <!--Bootstrap-->	
 	<link href="../../../css/style.css" rel="stylesheet" type="text/css" />
 	<link href="../../../css/selfstyle.css" rel="stylesheet" type="text/css" >	
-	<link href="https://www.w3schools.com/w3css/3/w3.css" rel="stylesheet" type="text/css" >
 	<script src="../../../js/jquery-3.1.1.min.js"></script> 
 	<script src="../../../js/self.js"></script>
 		
@@ -68,11 +67,11 @@
 		&nbsp;&nbsp;|||
 		<a href="logout.php">&nbsp;&nbsp;Log out</a>
 		&nbsp;&nbsp;|||&nbsp;&nbsp;
-		<a href="../../cn/Admin/<?php echo $_SESSION['pages'];?>"><img style="" src="../../../images/cn.ico">&nbsp;CN</a></p>
+		<a href="../../cn/admin/<?php echo $_SESSION['pages'];?>"><img style="" src="../../../images/cn.ico">&nbsp;CN</a></p>
 		<div>		
-			<a href="index.php"><img style="width:120px; height:95px; float:left;margin: 20px 0px 0px 0px; padding-left:20px;" src="../../../images/logo2.png">
-			
-			<div id="logo" style="text-align:center; padding: 20px 0px 0px 0px;">
+			<a href="index.php"><img src="../../../images/logo3.png">
+				<span class='seperater'></span>
+			<div id="logo">
 				<p></p>
 				<div>
 					<p>SABAH TRADITIONAL CHINESE MEDICINE DATABASE</p>

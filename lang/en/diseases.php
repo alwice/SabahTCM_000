@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">	
+	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="diseases.php";
 		$page_title="diseases";
@@ -22,7 +23,7 @@
 					while($row=mysqli_fetch_array($disease_query)){
 						$disease=$row['disease'];
 				?>
-						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;Details</i></a></li>
+						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;</i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -60,7 +61,7 @@
 								}
 				?>
 								<!--print list of local_name-->
-								<p style="padding-bottom:2px"><li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li></p>	
+								<p style="padding-bottom:1%"><li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li></p>	
 								</br>
 								<!--done print list-->
 				<?php
@@ -84,11 +85,22 @@
 							<!--print herb_list-->
 							<h3 class="first"><?php echo $herb_name; ?></h3>
 							</br>
-							<p><img style="width:187px; height:180px; float:right;margin:0px 0px 0px 10px" src="../../pics/<?php echo $image;?>"></p>
-							<p style="padding-bottom:2px"><b>Local Name: </b><?php echo $herb_name;?></p>
-							<p style="padding-bottom:2px"><b>Other Name: </b><?php echo $other_name;?></p>
-							<p style="padding-bottom:2px"><b>Scientific Name: </b><i><?php echo $sci_name;?></i></p>	
-							<p style="padding-bottom:2px"><b>Family: </b><?php echo $family; ?></p>	
+							<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right; margin:5% 0px 0px 5%; max-height: 200px; object-fit: cover;" src="../../pics/<?php echo $image;?>" onclick="enlarge();"/>
+
+							<!-- The Modal -->
+							<div id="enlargeImg">
+								<!--Close button-->
+							  	<span class="closeImg">&times;</span>  	
+							  	<!--Content-->
+							  	<img id="bigImg">
+							  	<!--Caption-->
+							  	<div id="caption"></div>
+							</div>
+
+							<p style="padding-bottom:1%"><b>Local Name: </b><?php echo $herb_name;?></p>
+							<p style="padding-bottom:1%"><b>Other Name: </b><?php echo $other_name;?></p>
+							<p style="padding-bottom:1%"><b>Scientific Name: </b><i><?php echo $sci_name;?></i></p>	
+							<p style="padding-bottom:1%"><b>Family: </b><?php echo $family; ?></p>	
 							</br> 
 							<!--done print herb_list-->
 				<?php
@@ -101,9 +113,9 @@
 							}/* end while fetch herb_info*/
 				?>
 							<!--print herb_info-->
-							<p style="padding-bottom:4px"><b>Part of Use: </b><?php echo $part;?></p>
-							<p style="padding-bottom:4px"><b>Expertise Function: </b><?php echo $function;?></p>
-							<p style="padding-bottom:4px"><b>Disease: </b><?php echo $disease;?></p>		
+							<p style="padding-bottom:1%"><b>Part of Use: </b><?php echo $part;?></p>
+							<p style="padding-bottom:1%"><b>Expertise Function: </b><?php echo $function;?></p>
+							<p style="padding-bottom:1%"><b>Disease: </b><?php echo $disease;?></p>		
 							<hr>
 							
 							<p><a href="diseases.php?disease=<?php echo $disease;?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
@@ -113,7 +125,6 @@
 				?>			
 			</div><!--end content div-->
 		</div>
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

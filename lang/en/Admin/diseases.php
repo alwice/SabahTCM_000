@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="diseases.php";
 		$page_title="diseases";
@@ -83,7 +84,18 @@
 							<!--print herb_list-->
 							<h3 class="first"><?php echo $herb_name; ?></h3>
 							</br>
-							<p><img style="width:187px; height:180px; float:right;margin:0px 0px 0px 10px" src="../../../pics/<?php echo $image;?>"></p>
+							<img id="herbImg" alt="<?php echo $herb_name;?>" width="30%" height="auto" style="float:right; margin:5% 0px 0px 5%; max-height: 200px; object-fit: cover;" src="../../../pics/<?php echo $image;?>" onclick="enlarge();"/>
+
+							<!-- The Modal -->
+							<div id="enlargeImg">
+								<!--Close button-->
+							  	<span class="closeImg">&times;</span>  	
+							  	<!--Content-->
+							  	<img id="bigImg">
+							  	<!--Caption-->
+							  	<div id="caption"></div>
+							</div>
+							
 							<p style="padding-bottom:2px"><b>Local Name: </b><?php echo $herb_name;?></p>
 							<p style="padding-bottom:2px"><b>Other Name: </b><?php echo $other_name;?></p>
 							<p style="padding-bottom:2px"><b>Scientific Name: </b><i><?php echo $sci_name;?></i></p>	
@@ -112,7 +124,6 @@
 				?>			
 			</div><!--end content div-->
 		</div>
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

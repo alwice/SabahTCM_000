@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="images.php";
 		$page_title="images";
@@ -72,7 +73,12 @@
 						if($open = opendir ($folder)){
 							while(($file = readdir($open)) != false){
 								if ($file =='.' || $file =='..') continue;
-									echo '<img style="margin-left:220px" src="../../../upload/'.$file. '" width="350" height="350" >';
+									echo '<img id="herbImg" style="display:block; margin-left:auto; margin-right:auto; object-fit:cover;" src="../../../upload/'.$file.'" width="30%" height="auto" onclick="enlarge();"/>';
+									echo '<div id="enlargeImg"> 
+											<span class="closeImg">&times;</span>
+											<img id="bigImg">
+											<div id="caption"></div>
+							  			</div>';
 								$picUpload = $folder . $file;
 								$image1 = $picUpload; //name for uploaded image			
 								$herb_information=mysqli_query($conn,"SELECT * FROM herb_list")or die(mysqli_error($conn));
@@ -108,10 +114,8 @@
 						}/*end if opendir*/
 					}/*end is_dir*/	
 				?>	
-				</br></br>
 			</div>
 		</div>	
-		</br></br>
 	</div>
 	<?php
 		include("footer.php");

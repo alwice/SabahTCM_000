@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['topic_id']=$_GET['id'];
 		$id=$_SESSION['topic_id'];
@@ -151,7 +152,6 @@
 				}/*end add topic Opinion and Suggestion*/
 			?>
 		</div>
-		</br>
 	</div>
 	<?php
 		include ("footer.php");

@@ -2,29 +2,28 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
-	<link href="images/logo2.jpg" rel="icon" /> <!--Icon-->
-	<link href="css/style.css" rel="stylesheet" /> <!--style navigation-->
-	<link href="css/font-awesome.css" rel="stylesheet" /> <!--font-awsome icon-->
-	<link href="css/docs.css" rel="stylesheet" /> <!--doc css-->
-	<link href="css/style.css" rel="stylesheet" type="text/css" >	
-	<link href="css/bootstrap.min.css" rel="stylesheet"/> <!--Bootstrap-->
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script> <!--Bootstrap script-->
-	<title>SignUp - SabahTCM</title>
-</head>
-<body>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="signup.php";
 		include ("menu.php");
+	?>
+	<title>SignUp - SabahTCM</title>
+</head>
+<body>
+	<br>
+	<div style="background:lightblue" class="alert alert-info">Sign Up</div>	
+	<?php
 		$username=isset($_POST['username']) ? $_POST['username'] : NULL;
 		$email=isset($_POST['email']) ? $_POST['email'] : NULL;
+		$squestion=isset($_POST['squestion']) ? $_POST['squestion'] : NULL;
+		$sanswer=isset($_POST['sanswer']) ? $_POST['sanswer'] : NULL;
 	?>
 	</br>
 
 	<div id="body">
 		</br>
 		<div class="sidebar">	 
-			<p><a href="index.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
+			<p><a href="login.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
 		<div id="home" style="width:700px">
 			<div id="hd">Please fills the information below</div>
@@ -38,20 +37,32 @@
 				<br><br>
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 128px">Password:</label>
+					<label style="padding-left: 129px">Password:</label>
 					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters" required>
 				</div>
 				<br><br>
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 58px">Reenter Password:</label>
+					<label style="padding-left: 57px">Reenter Password:</label>
 					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="cpassword" minlength="8" placeholder="Pa55w0rd" title="Must match with Password" required>
 				</div>
 				<br><br>
 				<!--Email-->
 				<div class="form-group">
-					<label style="padding-left: 163px">Email:</label>
+					<label style="padding-left: 164px">Email:</label>
 					<input style="width:300px" type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" required>
+				</div>
+				<br><br>
+				<!--Security Question-->
+				<div class="form-group">
+					<label style="padding-left: 61px">Security Question:</label>
+					<?php include "list_squestion.php";?>
+				</div>
+				<br><br>
+				<!--Security Answer-->
+				<div class="form-group">
+					<label style="padding-left: 73px">Security Answer:</label>
+					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $sanswer;?>" name="sanswer" placeholder="answer" required>
 				</div>
 				<br><br>
 				<div class="form-group" style="padding-top:20px">
@@ -67,6 +78,8 @@
 				    $password = $_POST["password"];
 					$cpassword = $_POST["cpassword"];
 					$email = $_POST['email'];
+					$squestion = $_POST['squestion'];
+					$sanswer = $_POST['sanswer'];
 
 					//for checking the username if existed in db
 					$user=mysqli_query($conn,"SELECT username FROM user WHERE username='$username'")or die(mysqli_error($conn));
@@ -87,8 +100,8 @@
 						$msg=$msg."The password are not match!";
 					}
 					if($msg==NULL){
-						$sql="INSERT INTO user (username, password, email) 
-							VALUES('$username', '$cpassword', '$email')";
+						$sql="INSERT INTO user (username, password, email, security_question, security_answer) 
+							VALUES('$username', '$cpassword', '$email', '$squestion', '$sanswer')";
 						mysqli_query($conn,$sql)or die(mysqli_error($conn));
 						echo "<script>alert('Sign Up Successful!!'); location.href='index.php';</script>";
 					}
@@ -99,7 +112,6 @@
 			?>
 		</div>	
 	</div>			
-	</br>
 	<?php
 		include("footer.php");
 	?>

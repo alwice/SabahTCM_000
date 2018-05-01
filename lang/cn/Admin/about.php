@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
 	<?php
 		$_SESSION['pages']="about.php";
 		$page_title="information";

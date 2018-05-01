@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="search_forum.php";
 		$page_title="forum";
@@ -100,7 +101,6 @@
 				}
 			?>
 		</div>
-		</br></br>
 	</div>
 	<?php
 		include ("footer.php");

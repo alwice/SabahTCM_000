@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="add_comment.php";
 		$id=$_SESSION['topic_id'];
@@ -65,10 +66,8 @@
 				</div>
 		    </form>					
 		</div>
-		</br>	
 	</div>
-	</br></br>
-    <?php 
+   <?php 
     	if(isset($_POST['submit'])){
     		$topic_id=$_POST['topic_id'];
     		$user_id=$_POST['user_id'];

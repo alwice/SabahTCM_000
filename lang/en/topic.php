@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['category']=$_GET['category'];
 		if($_GET['category']=="Question"){
@@ -85,7 +86,7 @@
 			?>
 				<table id="forum" width="95%" border="1" align="center" cellpadding="3" cellspacing="1">
 					<thead style="background-color: #E6E6E6"><tr>
-						<th width="50%" style="text-align: center;" onclick="sortTable(0)"><strong>Topic</strong></th>
+						<th width="50%" style="text-align: center;" onclick="sortTable(0)"><strong>Topic&nbsp;<i class="pull-right col-lg-4 icon-sort icon-small"></strong></th>
 						<th width="5%" style="text-align: center;" onclick="sortTable(1)"><strong>Replies</strong></th>
 						<th width="20%" colspan="2" style="text-align: center;" onclick="sortTable(3)"><strong>Created By</strong></th>
 						<th width="20%" colspan="2" style="text-align: center;" onclick="sortTable(5)"><strong>Last Replied By</strong></th>
@@ -135,7 +136,6 @@
 						<td colspan="6">&nbsp;</td>
 					</tr></tfoot>
 				</table>
-				</br></br>
 		</div>
 	</div>
 	<?php

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="add_topic.php";
 		$page_title="forum";
@@ -36,7 +37,7 @@
 			<p><a href="topic.php?category=<?php echo $_SESSION['category'];?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
 	
-		<div id="home" style="width:600px">
+		<div id="home" style="width:50%">
 			<div id="hd">Please Insert Details Below</div>		
 	
 			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
@@ -63,9 +64,7 @@
 				</div>
 		    </form>					
 		</div>	
-		</br>	
     </div>
-    </br></br>
     <?php 
     	if(isset($_POST['submit'])){
     		$user_id=$_POST['user_id'];
