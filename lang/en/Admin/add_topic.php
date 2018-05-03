@@ -12,24 +12,24 @@
 </head>
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
 		<?php 
 			if($_SESSION['category']=="Question"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;Add Question</a>&nbsp;&nbsp;
+				<a href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;>
+				<a href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;Add Question</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb Question*/
 			elseif($_SESSION['category']=="Opinion and Suggestion"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=Opinion and Suggestion"><i class="icon-question icon-large"></i>&nbsp;Opinion and Suggestion</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;Add Topic</a>&nbsp;&nbsp;
+				<a href="topic.php?category=Opinion and Suggestion"><i class="icon-question icon-large"></i>&nbsp;Opinion and Suggestion</a>&nbsp;&nbsp;>
+				<a href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;Add Topic</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb Opinion and Suggestion*/
 		?>
 	</div>
-	</br>
+	
 	<div id="body">
         <div style="background:lightblue" class="alert alert-info">Add Topic</div>
 		</br>	 
@@ -37,29 +37,29 @@
 			<p><a href="topic.php?category=<?php echo $_SESSION['category'];?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
 	
-		<div id="home" style="width:600px">
-			<div id="hd">Please Insert Details Below</div>	
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
-				<br><br>
+		<div id="small_window">
+			<div id="hd">Please Insert Details Below</div>		
+			</br><span class="form_break"></br></span>
+			<form id="topic" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<input type="hidden" name="user_id" value="<?php echo $_SESSION['userID']; ?>">	
 				<input type="hidden" name="category" value="<?php echo $_SESSION['category']; ?>">
 				<!--Topic-->
 				<div class="form-group">
-					<label style="padding-left: 93px">Topic:</label>
-					<input style="width:350px" type="text" class="form-control" name="topic"  placeholder="Main Topic" required/>
+					<label>Topic:</label>
+					<input type="text" class="form-control" name="topic"  placeholder="Main Topic" required/>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Topic Describtion-->
 				<div class="form-group">
-					<label  style="padding-left: 80px">Details:</label>
-					<textarea style="width:350px; height:160px" type="text-box" class="form-control" name="topic_details" placeholder="Details of Topic" required ></textarea>
+					<label>Details:</label>
+					<textarea type="text-box" class="form-control" name="topic_details" placeholder="Details of Topic" required ></textarea>
 				</div>
-				<br><br>
-				
-				<div class="control-group">
-					<div class="controls" style="padding-left: 250px" >
+				</br><span class="form_break"></br></span>
+				<p>The Topic will only shown in Forum after reviewed by admin.</p>
+				</br>
+				<!--submit button-->
+				<div class="controls">
 					<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;Save</button>
-					</div>
 				</div>
 		    </form>					
 		</div>	

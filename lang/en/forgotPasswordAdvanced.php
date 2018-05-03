@@ -11,49 +11,50 @@
 </head>
 <body>
 	<div id="body">
-		<br>
-		<div style="background:lightblue" class="alert alert-info">Forgot Password</div>
 		<?php
 			$username=$_SESSION['user'];
 			$email=$_SESSION['email'];
 			$squestion=$_SESSION['squestion'];
 			$sanswer=$_SESSION['sanswer'];
 		?>
-		</br>
+		</br><span class="nav_break"></br></br></br></br></br></span>
 		<div class="sidebar">	 
 			<p><a href="forgotPassword.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div id="home" style="width:700px">
-			<div id="hd">Please fills the information below</div>
-			</br></br>
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
+		<div id="small_window">
+			<div id="hd">Forgot Password</div>
+			</br><span class="form_break"></br></span>	
+			<form id="signup" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<!--Username-->
 				<div class="form-group">
-					<label style="padding-left: 125px">Username:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must match with the username that already signup" disabled>
+					<label>Username:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" disabled>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Email-->
 				<div class="form-group">
-					<label style="padding-left: 164px">Email:</label>
-					<input style="width:300px" type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" title="Must match with the email that already signup" disabled>
+					<label>Email:</label>
+					<input type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" disabled>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Security Question-->
 				<div class="form-group">
-					<label style="padding-left: 61px">Security Question:</label>
-					<input style="width:60%" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $squestion;?>" name="squestion" placeholder="example@email.com" disabled>
+					<label>Security Question:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $squestion;?>" name="squestion" title="Drag to see full question" disabled>
 				</div>
-				<br><br>
-
-				<!--Security Answer-->
+				</br><span class="form_break"></br></span>
+				
+				<!--Security Answer-->			
 				<div class="form-group">
-					<label style="padding-left: 73px">Security Answer:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="sanswer" placeholder="answer" required>
+					<label>Security Answer:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="sanswer" placeholder="answer" title="Must match with the security answer while signup" required>
 				</div>
 
+				<!--submit button-->
 				<div class="form-group" style="padding-top:20px">
-					<button class="form-control" value="action" name="action" type="submit" class="btn btn-lg btn-primary btn-block" style="margin-left: 300px"><i class="icon-signal icon-large"></i>&nbsp;Confirm</button>
+					<button class="form-control" value="action" name="action" type="submit"><i class="icon-signal icon-large"></i>&nbsp;Confirm</button>
 				</div>
 			</form>
 		</div>

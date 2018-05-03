@@ -10,63 +10,67 @@
 	<title>SignUp - SabahTCM</title>
 </head>
 <body>
-	<br>
-	<div style="background:lightblue" class="alert alert-info">Sign Up</div>	
 	<?php
 		$username=isset($_POST['username']) ? $_POST['username'] : NULL;
 		$email=isset($_POST['email']) ? $_POST['email'] : NULL;
 		$squestion=isset($_POST['squestion']) ? $_POST['squestion'] : NULL;
 		$sanswer=isset($_POST['sanswer']) ? $_POST['sanswer'] : NULL;
 	?>
-	</br>
-
+	
 	<div id="body">
-		</br>
+		</br><span class="nav_break"></br></br></br></br></br></span>
 		<div class="sidebar">	 
 			<p><a href="login.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div id="home" style="width:700px">
-			<div id="hd">Please fills the information below</div>
-			</br></br>
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
+		<div id="small_window">
+			<div id="hd">Sign Up</div>
+			</br><span class="form_break"></br></span>
+			<form id="signup" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<!--Username-->
 				<div class="form-group">
-					<label style="padding-left: 125px">Username:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must contain at least 8 characters" required>
+					<label>Username:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must contain at least 8 characters" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 129px">Password:</label>
-					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters" required>
+					<label>Password:</label>
+					<input type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 57px">Reenter Password:</label>
-					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="cpassword" minlength="8" placeholder="Pa55w0rd" title="Must match with Password" required>
+					<label>Reenter Password:</label>
+					<input type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="cpassword" minlength="8" placeholder="Pa55w0rd" title="Must match with Password" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Email-->
 				<div class="form-group">
-					<label style="padding-left: 164px">Email:</label>
-					<input style="width:300px" type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" required>
+					<label>Email:</label>
+					<input type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" title="Must valid email" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Security Question-->
 				<div class="form-group">
-					<label style="padding-left: 61px">Security Question:</label>
+					<label>Security Question:</label>
 					<?php include "list_squestion.php";?>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
 				<!--Security Answer-->
 				<div class="form-group">
-					<label style="padding-left: 73px">Security Answer:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $sanswer;?>" name="sanswer" placeholder="answer" required>
+					<label>Security Answer:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $sanswer;?>" name="sanswer" placeholder="answer" title="Don't let other know your answer" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+				
+				<!--submit button-->
 				<div class="form-group" style="padding-top:20px">
-					<button class="form-control" value="action" name="action" type="submit" class="btn btn-save" style="margin-left: 300px"><i class="icon-save icon-large"></i>&nbsp;Submit</button>
+					<button class="form-control" value="action" name="action" type="submit"><i class="icon-save icon-large"></i>&nbsp;Submit</button>
 				</div>
 			</form>
 			

@@ -10,36 +10,33 @@
 	<title>Forgot Password - SabahTCM</title>
 </head>
 <body>
-	<div id="body">
-		<br>
-		<div style="background:lightblue" class="alert alert-info">Forgot Password</div>
-		
+	<div id="body">	
 		<?php
 			$username=isset($_POST['username']) ? $_POST['username'] : NULL;
 			$email=isset($_POST['email']) ? $_POST['email'] : NULL;
 		?>
-		</br>
+		</br><span class="nav_break"></br></br></br></br></br></span>
 		<div class="sidebar">	 
 			<p><a href="login.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div id="home" style="width:700px">
-			<div id="hd">Please fills the information below</div>
+		<div id="small_window">
+			<div id="hd">Forgot Password</div>
 			</br></br>
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
+			<form id="login" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<!--Username-->
 				<div class="form-group">
-					<label style="padding-left: 125px">Username:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must match with the username that already signup" required>
+					<label>Username:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must match with the username that already signup" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Email-->
 				<div class="form-group">
-					<label style="padding-left: 164px">Email:</label>
-					<input style="width:300px" type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" title="Must match with the email that already signup" required>
+					<label>Email:</label>
+					<input type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" title="Must match with the email that already signup" required>
 				</div>
-				<br><br>
-				<div class="form-group" style="padding-top:20px">
-					<button class="form-control" value="action" name="action" type="submit" class="btn btn-lg btn-primary btn-block" style="margin-left: 300px"><i class="icon-signal icon-large"></i>&nbsp;Confirm</button>
+				</br><span class="form_break"></br></span>
+				<div class="form-group" style="padding-top:2%">
+					<button class="form-control" value="action" name="action" type="submit"><i class="icon-signal icon-large"></i>&nbsp;Confirm</button>
 				</div>
 			</form>
 		</div>

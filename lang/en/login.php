@@ -10,66 +10,70 @@
 	<title>Login - SabahTCM</title>
 </head>
 <body>
-	</br>
 	<div id="body">
-	</br>
+		</br><span class="nav_break"></br></br></br></br></br></span>
 		<div class="sidebar">	 
 			<p><a href="index.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div id="home" style="width:500px">
-			<div>
-				<div id="hd">
-					User Login
-				</div>
-				<form class="form-inline" method="POST">
-					<div class="form-group">
-						<label style="padding: 45px 5px 10px 85px;" for="inputEmail">Username</label>
-						<input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
-					</div>
-					
-					<div class="form-group">
-						<label style="padding: 10px 9px 10px 85px;" for="inputPassword">Password</label>
-						<input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
-					</div>
-					</br>
-					</br><a href="forgotPassword.php" style="margin-left: 300px">Forgot Password</a>
-					<a href="signup.php" style="margin-left: 300px">Sign Up</a>
-					<div class="form-group" style="padding-top:20px">
-						<button class="form-control" id="login" name="submit" type="submit" class="btn" style="margin-left: 200px;"><i class="icon-signin icon-large"></i>&nbsp;Login</button>
-					</div>
-					
-					<?php
-						if(isset($_POST['submit'])){
-							$username = $_POST['username'];
-							$password = $_POST['password'];
-							$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-							$result = mysqli_query($conn,$query)or die(mysqli_error($conn));
-							$num_row=mysqli_num_rows($result);
-							$row=mysqli_fetch_array($result);
-							if($num_row>0) {	
-								$_SESSION['username']=$row['username'];
-								$_SESSION['userID']=$row['user_id'];
-								$_SESSION['isAdmin']=$row['isAdmin'];
-								mysqli_close($conn);
+		<div id="small_window">
+			<div id="hd">User Login</div>
+			</br><span class="form_break"></br></span>
+			<form id="login" class="form-inline" method="POST" enctype="multipart/form-data">
 
-								if($_SESSION['isAdmin']==1){
-								$url='admin';
-								echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-								}
-								else{
-									$url='index.php';
-									echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-								}
+				<!--Username-->
+				<div class="form-group">
+					<label for="inputEmail">Username: </label>
+					<input class="form-control" type="text" name="username" id="username" placeholder="Username" title="Fillin your username" required>
+				</div>
+				</br><span class="form_break"></br></span>
+
+				<!--Password-->
+				<div class="form-group">
+					<label for="inputPassword">Password: </label>
+					<input class="form-control" type="password" name="password" id="password" placeholder="Password" title="Fillin your password" required>
+				</div>
+				</br><span class="form_break"></br></span>
+
+				<a href="forgotPassword.php" style="margin-left: 60%">Forgot Password</a>
+				<a href="signup.php" style="margin-left: 60%">Sign Up</a>
+
+				<!--submit button-->
+				<div class="form-group" style="padding-top:2%">
+					<button class="form-control" id="login" name="submit" type="submit"><i class="icon-signin icon-large"></i>&nbsp;Login</button>
+				</div>
+			</form>
+
+				<?php
+					if(isset($_POST['submit'])){
+						$username = $_POST['username'];
+						$password = $_POST['password'];
+						$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+						$result = mysqli_query($conn,$query)or die(mysqli_error($conn));
+						$num_row=mysqli_num_rows($result);
+						$row=mysqli_fetch_array($result);
+						if($num_row>0) {	
+							$_SESSION['username']=$row['username'];
+							$_SESSION['userID']=$row['user_id'];
+							$_SESSION['isAdmin']=$row['isAdmin'];
+							mysqli_close($conn);
+
+							if($_SESSION['isAdmin']==1){
+							$url='admin';
+							echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 							}
-							else{ 
-					?>
-								<div style="background:#fcac99" class="form-group alert alert-danger">Access Denied</div>		
-					<?php
-							}/*end of else denied*/
-						}/*end of if submit*/
-					?>
-				</form>
-			</div>
+							else{
+								$url='index.php';
+								echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+							}
+						}
+						else{ 
+				?>
+							<div style="background:#fcac99" class="form-group alert alert-danger">Access Denied</div>		
+				<?php
+						}/*end of else denied*/
+					}/*end of if submit*/
+				?>
+			
 		</div>
 	</div>				
 	<?php

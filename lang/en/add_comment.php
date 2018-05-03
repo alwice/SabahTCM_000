@@ -17,27 +17,26 @@
 </head>
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
 		<?php 
 			if($_SESSION['category']=="Question"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_comment.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;Add Answer</a>&nbsp;&nbsp;
+				<a href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;>
+				<a href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;>
+				<a href="add_comment.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;Add Answer</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb Question*/
 			elseif($_SESSION['category']=="Opinion and Suggestion"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=Opinion and Suggestion"><i class="icon-question icon-large"></i>&nbsp;Opinion and Suggestion</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_comment.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;Add Comment</a>&nbsp;&nbsp;
+				<a href="topic.php?category=Opinion and Suggestion"><i class="icon-question icon-large"></i>&nbsp;Opinion and Suggestion</a>&nbsp;&nbsp;>
+				<a href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;>
+				<a href="add_comment.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;Add Comment</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb Opinion and Suggestion*/
 		?>
 	</div>
-	</br>
-
+	
 	<div id="body">
         <div style="background:lightblue" class="alert alert-info">Add Comment</div>
 		</br>	 
@@ -45,24 +44,25 @@
 			<p><a href="topic_view.php?id=<?php echo $id;?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
 	
-		<div id="home" style="width:600px">
+		<div id="small_window">
 			<div id="hd">Please Insert Details Below</div>
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
-				<br><br>
+			
+			</br><span class="form_break"></br></span>
+			<form id="topic" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<input type="hidden" name="user_id" value="<?php echo $_SESSION['userID'];?>">	
 				<input type="hidden" name="category" value="<?php echo $_SESSION['category'];?>">
 				<input type="hidden" name="topic_id" value="<?php echo $id;?>">
 				<!--Comment-->
 				<div class="form-group">
-					<label  style="padding-left: 80px">Comment:</label>
-					<textarea style="width:350px; height:160px" type="text-box" class="form-control" name="comment" placeholder="Comment" required ></textarea>
+					<label>Comment:</label>
+					<textarea type="text-box" class="form-control" name="comment" placeholder="Comment" required ></textarea>
 				</div>
-				<br><br>
-				<p style="text-align: center;">**The Comment will only shown in Forum after reviewed by admin.**</p>
-				<div class="control-group">
-					<div class="controls" style="padding-left: 250px" >
+				</br><span class="form_break"></br></span>
+				<p>The Comment will only shown in Forum after reviewed by admin.</p>
+				</br>
+				<!--submit button-->
+				<div class="controls">
 					<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;Save</button>
-					</div>
 				</div>
 		    </form>					
 		</div>

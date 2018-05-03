@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="breadcrum">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="disclaimer.php"><i class="icon-question icon-large"></i>&nbsp;Disclaimer</a>&nbsp;&nbsp;
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
+		<a href="disclaimer.php"><i class="icon-question icon-large"></i>&nbsp;Disclaimer</a>&nbsp;&nbsp;
 	</div>
 	</br>
 	<h3>Disclaimer</h3>

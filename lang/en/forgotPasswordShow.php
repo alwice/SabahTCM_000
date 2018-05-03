@@ -9,10 +9,7 @@
 	?>
 	<title>Forgot Password - SabahTCM</title>
 </head>
-<body>
-	<br>
-	<div style="background:lightblue" class="alert alert-info">Forgot Password</div>
-		
+<body>		
 	<?php
 		$username=$_SESSION['user'];
 		$password=$_SESSION['pw'];
@@ -20,28 +17,28 @@
 	</br>
 
 	<div id="body">
-		</br>
-		<div class="sidebar">	 
-			<p><a href="login.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
-		</div>
-		<div id="home" style="width:700px">
+		</br><span class="nav_break"></br></br></br></br></br></span>
+		<div id="small_window">
 			<div id="hd">Your Password</div>
-			</br></br>
-			<form class="form-inline" method="POST" action="login.php" enctype="multipart/form-data">
+			</br><span class="form_break"></br></span>
+			<form id="login" action="login.php" class="form-inline" method="POST" enctype="multipart/form-data">
 				<!--Username-->
 				<div class="form-group">
-					<label style="padding-left: 125px">Username:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="Username" title="Must contain at least 8 characters" disabled>
+					<label>Username:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" disabled>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 129px">Password:</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $password;?>" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters" disabled>
+					<label>Password:</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $password;?>" name="password" disabled>
 				</div>
-				<br><br>
-				<div class="form-group" style="padding-top:20px">
-					<button class="form-control" value="action" name="action" type="submit" class="btn btn-lg btn-primary btn-block" style="margin-left: 300px"><i class="icon-user icon-large"></i>&nbsp;Login</button>
+				</br><span class="form_break"></br></span>
+				
+				<!--submit button-->
+				<div class="form-group" style="padding-top:2%">
+					<button class="form-control" value="action" name="action" type="submit"><i class="icon-user icon-large"></i>&nbsp;Go Login</button>
 				</div>
 			</form>
 		</div>	

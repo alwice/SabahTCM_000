@@ -23,7 +23,7 @@
 					while($row=mysqli_fetch_array($disease_query)){
 						$disease=$row['disease'];
 				?>			
-						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;Details</i></a></li>
+						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;<span class="herb_detail">Details</span></i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -96,10 +96,10 @@
 							  	<div id="caption"></div>
 							</div>
 							
-							<p style="padding-bottom:2px"><b>Local Name: </b><?php echo $herb_name;?></p>
-							<p style="padding-bottom:2px"><b>Other Name: </b><?php echo $other_name;?></p>
-							<p style="padding-bottom:2px"><b>Scientific Name: </b><i><?php echo $sci_name;?></i></p>	
-							<p style="padding-bottom:2px"><b>Family: </b><?php echo $family; ?></p>	
+							<p><b> Local Name: </b><span class="herb_break"></br></span><?php echo $herb_name;?></p>
+							<p><b> Other Name: </b><span class="herb_break"></br></span><?php echo $other_name;?></p>
+							<p><b> Scientific Name: </b><span class="herb_break"></br></span><i><?php echo $sci_name;?></i></p>	
+							<p><b> Family: </b><span class="herb_break"></br></span><?php echo $family;?></p>
 							</br> 
 							<!--done print herb_list-->
 				<?php
@@ -112,9 +112,9 @@
 							}/* end while fetch herb_info*/
 				?>
 							<!--print herb_info-->
-							<p style="padding-bottom:4px"><b>Part of Use: </b><?php echo $part;?></p>
-							<p style="padding-bottom:4px"><b>Expertise Function: </b><?php echo $function;?></p>
-							<p style="padding-bottom:4px"><b>Disease: </b><?php echo $disease;?></p>		
+							<p><b> Part of Use: </b><span class="herb_break"></br></span><?php echo $part;?></p>
+							<p><b> Expertise Function: </b><span class="herb_break"></br></span><?php echo $function;?></p>
+							<p><b>Disease: </b><span class="herb_break"></br></span><?php echo $disease;?></p>	
 							<hr>
 							
 							<p><a href="diseases.php?disease=<?php echo $disease;?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>

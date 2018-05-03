@@ -30,13 +30,13 @@
 </head>
 <body>
 	<div id="breadcrum">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="tc.php"><i class="icon-question icon-large"></i>&nbsp;Terms of Use Agreement</a>&nbsp;&nbsp;
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
+		<a href="tc.php"><i class="icon-question icon-large"></i>&nbsp;Terms of Use Agreement</a>&nbsp;&nbsp;
 	</div>
 	</br>
 	<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 	<div id="body">
-		<div class="content" style="text-align:justify; padding-left:5px">	
+		<div class="content" style="text-align:justify;">	
 			<h4>Terms of Use Agreement</h4>
 			<b>Table of Contents</b>
 			

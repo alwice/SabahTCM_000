@@ -15,8 +15,7 @@
 		</br>
 		<div style="border-radius:12px" id="home">
 			<div class="sidebar">
-				<img src="../../../images/home.jpg" alt="Image">			
-				<!-- <img style="width:300px; height:300px; float:right;margin:10px 10px 55px 0px" src="../../images/home2.jpg" alt="Image"> -->
+				<img src="../../../images/home.jpg">			
 			</div>
 			<div class="content">
 			</br>
@@ -27,7 +26,8 @@
 				<p>Sabah Traditional Chinese Medicine Database (SabahTCM) collected data from validated information. In addition, SabahTCM also verified the data with expertise in Sabah.</p>
 				
 				<h1>What makes different?</h1>
-				<p>Sabah Traditional Chinese Medicine Database (SabahTCM) has the advanced in which it may be review in bilingual (English and Chinese). Besides, Forum is provided for the users and admins to interact and exchange opinion.</p>			
+				<p>Sabah Traditional Chinese Medicine Database (SabahTCM) has the advanced in which it may be review in bilingual (English and Chinese). Besides, Forum is provided for the users and admins to interact and exchange opinion.</p>
+			
 			</div><!--end content div-->
 		</div><!--end div-->
 	</div><!--end body div-->

@@ -25,7 +25,7 @@
 						$herbs_id=$row['herb_id'];
 						$herb_name=$row['local_name'];
 				?>
-						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;</i></a></li>
+						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;<span class="herb_detail">Details</span></i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -72,10 +72,10 @@
 						  	<div id="caption"></div>
 						</div>
 
-						<p style="padding-bottom:1%"><b> Local Name: </b><?php echo $herb_name;?></p>
-						<p style="padding-bottom:1%"><b> Other Name: </b><?php echo $other_name;?></p>
-						<p style="padding-bottom:1%"><b> Scientific Name: </b><i><?php echo $sci_name;?></i></p>
-						<p style="padding-bottom:1%"><b> Family: </b><?php echo $family;?></p>
+						<p><b> Local Name: </b><span class="herb_break"></br></span><?php echo $herb_name;?></p>
+						<p><b> Other Name: </b><span class="herb_break"></br></span><?php echo $other_name;?></p>
+						<p><b> Scientific Name: </b><span class="herb_break"></br></span><i><?php echo $sci_name;?></i></p>
+						<p><b> Family: </b><span class="herb_break"></br></span><?php echo $family;?></p>
 						</br> 
 						<!--done print herb_list-->
 				<?php 	
@@ -88,9 +88,9 @@
 							$disease=$data['disease'];
 				?>	
 							<!--print herb_info-->
-							<p style="padding-bottom:1%"><b> Part of Use: </b><?php echo $part;?></p>
-							<p style="padding-bottom:1%"><b> Expertise Function: </b><?php echo $function;?></p>
-							<p style="padding-bottom:1%"><b>Disease: </b><?php echo $disease;?></p>	
+							<p><b> Part of Use: </b><span class="herb_break"></br></span><?php echo $part;?></p>
+							<p><b> Expertise Function: </b><span class="herb_break"></br></span><?php echo $function;?></p>
+							<p><b>Disease: </b><span class="herb_break"></br></span><?php echo $disease;?></p>	
 							<hr>
 				<?php 		
 						} /* end while print herb_info*/
