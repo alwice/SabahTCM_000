@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="diseases.php";
 		$page_title="diseases";
@@ -11,8 +12,8 @@
 </head>
 <body>
 	<div id="body">
-		</br>
 		<div id="main">
+			</br>
 			<div class="sidebar">
 				<h3 style="text-align:center" id="search">疾病种类</h3>
 				<!--Start listing all herbs-->
@@ -22,7 +23,7 @@
 					while($row=mysqli_fetch_array($disease_query)){
 						$disease=$row['disease_cn'];
 				?>			
-						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;详情</i></a></li>
+						<li><a href="diseases.php?disease=<?php echo $disease;?>"><?php echo $disease;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;<span class="herb_detail">详情</span></i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -59,8 +60,8 @@
 								}
 				?>
 								<!--print list of local_name-->
-								<p style="padding-bottom:2px"><li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li></p>	
-								</br>
+								<li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li>
+								</br></br>
 								<!--done print list-->
 				<?php
 					 		}/*end while listing*/
@@ -95,10 +96,10 @@
 							  	<div id="caption"></div>
 							</div>
 							
-							<p style="padding-bottom:2px"><b>名称：</b><?php echo $herb_name;?></p>
-							<p style="padding-bottom:2px"><b>别称：</b><?php echo $other_name;?></p>
-							<p style="padding-bottom:2px"><b>学名：</b><i><?php echo $sci_name;?></i></p>	
-							<p style="padding-bottom:2px"><b>科别：</b><?php echo $family; ?></p>	
+							<p><b>名称：</b><?php echo $herb_name;?></p>
+							<p><b>别称：</b><?php echo $other_name;?></p>
+							<p><b>学名：</b><i><?php echo $sci_name;?></i></p>	
+							<p><b>科别：</b><?php echo $family;?></p>	
 							</br> 
 							<!--done print herb_list-->
 				<?php
@@ -111,9 +112,9 @@
 							}/* end while fetch herb_info*/
 				?>
 							<!--print herb_info-->
-							<p style="padding-bottom:4px"><b>药用部位：</b><?php echo $part;?></p>
-							<p style="padding-bottom:4px"><b>功效：</b><?php echo $function;?></p>
-							<p style="padding-bottom:4px"><b>主治：</b><?php echo $disease;?></p>		
+							<p><b>药用部位：</b><?php echo $part;?></p>
+							<p><b>功效：</b><?php echo $function;?></p>
+							<p><b>主治：</b><?php echo $disease;?></p>		
 							<hr>
 							
 							<p><a href="diseases.php?disease=<?php echo $disease;?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
@@ -123,7 +124,6 @@
 				?>			
 			</div><!--end content div-->
 		</div>
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

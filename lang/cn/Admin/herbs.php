@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="herbs.php";
 		$page_title="herbs";
@@ -24,7 +25,7 @@
 						$herbs_id=$row['herb_id'];
 						$herb_name=$row['local_name_cn'];
 				?>
-						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;详情</i></a></li>
+						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;<span class="herb_detail">详情</span></i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -58,8 +59,11 @@
 				?>
 						<!--selection m5=-All m2=+dt-->
 						<a class="pull-right" style="color:darkblue" href="delete_herbs.php?list_id=<?php echo $list_id;?>&amp;m=5"><i class="icon-trash icon-large"></i>删除药草</a>&nbsp;&nbsp;&nbsp;
+						<span class="admin_herb_break"></br></span>
 						<h3 class="first"><?php echo $herb_name;?></h3>
+						<span class="admin_herb_break"></br></span>
 						<a class="pull-right" style="color:darkblue" href="add_herbs.php?list_id=<?php echo $list_id;?>&amp;m=2"><i class="icon-plus icon-large"></i>增加草药记录</a>&nbsp;&nbsp;&nbsp;
+						<span class="admin_herb_break"></br></span>
 						</br>
 
 						<!--print herb_list-->
@@ -75,10 +79,10 @@
 						  	<div id="caption"></div>
 						</div>
 						
-						<p style="padding-bottom:4px"><b> 名称：</b><?php echo $herb_name;?></p>
-						<p style="padding-bottom:4px"><b> 别称：</b><?php echo $other_name;?></p>
-						<p style="padding-bottom:4px"><b> 学名：</b><i><?php echo $sci_name;?></i></p>	
-						<p style="padding-bottom:4px"><b> 科别：</b><?php echo $family;?></p>
+						<p><b>名称：</b><?php echo $herb_name;?></p>
+						<p><b>别称：</b><?php echo $other_name;?></p>
+						<p><b>学名：</b><i><?php echo $sci_name;?></i></p>		
+						<p><b>科别：</b><?php echo $family;?></p>
 						</br> 
 						<!--done print herb_list-->
 				<?php 
@@ -91,11 +95,12 @@
 							$disease=$data['disease_cn'];
 				?>
 							<!--print herb_info-->
-							<p style="padding-bottom:4px"><b> 药用部位：</b><?php echo $part;?></p>
-							<p style="padding-bottom:4px"><b> 功效：</b><?php echo $function;?></p>
-							<p style="padding-bottom:4px"><b> 主治：</b><?php echo $disease;?>	
+							<p><b>药用部位：</b><?php echo $part;?></p>
+							<p><b>功效：</b><?php echo $function;?></p>
+							<p><b>主治：</b><?php echo $disease;?></p>		
 							<!--selection m3=ud, m4=-dt-->
 							<a class="pull-right" style="color:darkblue" href="add_herbs.php?info_id=<?php echo $info_id;?>&amp;m=3"><i class="icon-edit icon-large"></i>更新</a></p>
+							<span class="admin_herb_break"></br></span>
 							<a class="pull-right" style="color:darkblue" href="add_herbs.php?info_id=<?php echo $info_id;?>&amp;m=4"><i class="icon-trash icon-large"></i>删除记录</a>&nbsp;&nbsp;&nbsp;
 							<hr>				
 				<?php 		
@@ -104,7 +109,6 @@
 				?>
 			</div><!--end content div-->
 		</div><!--end div-->
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

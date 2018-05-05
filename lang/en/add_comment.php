@@ -55,7 +55,7 @@
 				<!--Comment-->
 				<div class="form-group">
 					<label>Comment:</label>
-					<textarea type="text-box" class="form-control" name="comment" placeholder="Comment" required ></textarea>
+					<textarea type="text-box" class="form-control" name="comment" placeholder="Comment" required /></textarea>
 				</div>
 				</br><span class="form_break"></br></span>
 				<p>The Comment will only shown in Forum after reviewed by admin.</p>

@@ -46,7 +46,7 @@
 				<!--Topic-->
 				<div class="form-group">
 					<label>Topic:</label>
-					<input type="text" class="form-control" name="topic"  placeholder="Main Topic" required/>
+					<input type="text" class="form-control" name="topic" placeholder="Main Topic" required/>
 				</div>
 				</br><span class="form_break"></br></span>
 				<!--Topic Describtion-->

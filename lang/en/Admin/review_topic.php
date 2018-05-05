@@ -12,16 +12,14 @@
 </head>
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="review_topic.php"><i class="icon-question icon-large"></i>&nbsp;Review Topic</a>&nbsp;&nbsp;
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;>
+		<a href="review_topic.php"><i class="icon-question icon-large"></i>&nbsp;Review Topic</a>&nbsp;&nbsp;
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
 		</form>
 	</div>
 	
@@ -29,15 +27,21 @@
 		<div class="sidebar">	 
 			<p><a href="forum.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div class="content" style="margin-right: 15%">
-			<table id="forum" width="95%" border="1" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+
+		<div class="content">
+			<table id="forum" width="100%" border="1" align="center" cellpadding="3" cellspacing="1">
 				<thead><tr>
-					<th width="40%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(0)"><strong>Topic</strong></th>
-					<th width="10%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(1)"><strong>Category</strong></th>
-					<th width="5%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(2)"><strong>Replies</strong></th>
-					<th width="20%" colspan="2" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(4)"><strong>Created By</strong></th>
-					<th width="20%" colspan="2" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(6)"><strong>Last Replied By</strong></th>
-					<th width="5%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(7)"><strong>Unreviewed</strong></th>
+					<th width="40%" onclick="sortTable(0)">Topic<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
+					<th width="10%" onclick="sortTable(1)">Category<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
+					<!--column of create&reply of dekstop-->
+					<th class="forum_site" width="20%" colspan="2" onclick="sortTable(3)">Created By&nbsp;<i class="icon-sort icon-small"></th>
+					<th class="forum_site" width="20%" colspan="2"  onclick="sortTable(5)">Last Replied By&nbsp;<i class="icon-sort icon-small"></th>
+					<th class="forum_site" width="5%" onclick="sortTable(6)">Replies&nbsp;<i class="icon-sort icon-small"></th>
+					<th class="forum_site" width="5%" onclick="sortTable(7)">Unreview&nbsp;<i class="icon-sort icon-small"></th>
+					<!--column of create&reply of mobile-->
+					<th class="forum_phone" width="20%" onclick="sortTable(3)">Created By&nbsp;<i class="icon-sort icon-small"></th>
+					<th class="forum_phone" width="20%" onclick="sortTable(5)">Last Replied By&nbsp;<i class="icon-sort icon-small"></th>
+					<th class="forum_phone" width="10%" onclick="sortTable(7)">Replies<span class="break"></br></span>/<span class="break"></br></span>Unreview<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
 				</tr></thead><tbody>
 			<?php
 				$question_show=mysqli_query($conn,"SELECT * FROM topic WHERE isReview!=2")or die(mysqli_error($conn));	
@@ -79,15 +83,20 @@
 					/*check either the topic/comment need review or not*/
 					if($topic_review==0 || $unreviewed>0){
 			?>
-						<tr>
-							<td bgcolor="#FFFFFF">&nbsp;&nbsp;<?php echo $topic;?>&nbsp;&nbsp;<a href="review_comment.php?id=<?php echo $topic_id;?>"><i class="icon-signin icon-large"></i></a><BR></td>
-							<td align="center" bgcolor="#FFFFFF"><?php echo $topic_category; ?></td>
-							<td align="center" bgcolor="#FFFFFF"><?php echo $reply; ?></td>
-							<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $topic_user;?></td>
-							<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $topic_time;?></td>
-							<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $comment_user;?></td>
-							<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $comment_time;?></td>
-							<td align="center" bgcolor="#FFFFFF"><?php echo $unreviewed;?></td>
+						<tr style="background-color: #FFFFFF">
+							<td>&nbsp;<?php echo $topic;?><span class="break"></br></span>&nbsp;<a href="review_comment.php?id=<?php echo $topic_id;?>"><i class="icon-signin icon-large"></i></a><BR></td>
+							<td align="center"><?php echo $topic_category; ?></td>
+							<!--column of create&reply of dekstop-->
+							<td class="forum_site" width="10%" align="center"><?php echo $topic_user;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $topic_time;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $comment_user;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $comment_time;?></td>
+							<td class="forum_site" width="5%" align="center"><?php echo $reply;?></td>
+							<td class="forum_site" width="5%" align="center"><?php echo $unreviewed;?></td>
+							<!--column of create&reply of mobile-->
+							<td class="forum_phone"align="center"><?php echo $topic_user.'</br>'.$topic_time;?></td>
+							<td class="forum_phone" align="center"><?php echo $comment_user.'</br>'.$comment_time;?></td>
+							<td class="forum_phone" align="center"><?php echo $reply.'/'.$unreviewed;?></td>
 						</tr>
 			<?php
 					}/*end check review needed*/

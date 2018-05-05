@@ -70,14 +70,14 @@
 		</div>
 	
 		<div id="small_window">
-			<div id="hd">Please fills the herb's information below</div>		
+			<div id="hd">Please fills the herb's information below</div>	
+			</br><span class="form_break"></br></span>	
 	
 			<form id="herb" class="form-inline" method="POST" action="add_herbs_save.php" enctype="multipart/form-data">
 				<input type="hidden" name="mode" value="<?php echo $mode;?>">
 				<input type="hidden" name="info_id" value="<?php echo $info_id;?>">		
 				<input type="hidden" name="herb_id" value="<?php echo $herb_id;?>">
-				</br><span class="form_break"></br></span>
-					
+				
 				<!--Scientific Name-->
 				<div class="form-group">
 					<label>Scientific Name:</label>
@@ -91,7 +91,6 @@
 					<input type="text" data-toggle="tooltip" data-placement="right" title="Fillin Only One Local Name" class="form-control" value="<?php if(isset($herb_name)) echo $herb_name;?>" name="herb_name" placeholder="Herbs' Local Name" />
 				</div>
 				</br><span class="form_break"></br></span>
-				
 				<!--Local Name in CN-->
 				<div class="form-group">
 					<label>Local Name (CN):</label>
@@ -200,7 +199,7 @@
 								Delete record?
 					            <button type="submit" class="btn btn-save" onClick="this.form.action='delete_herbs.php?info_id=<?php echo $info_id;?>'">&nbsp;Yes</button>
 					            <button type="submit" class="btn btn-save" onClick="this.form.action='herbs.php'">&nbsp;No</button>
-					            <input type="hidden" name="m" value="<?php echo $m;?>" formaction="delete_herbs.php">					
+					            <input type="hidden" name="m" value="<?php echo $m;?>" formaction="delete_herbs.php">
 					<?php	
 							} /*end else delete m=4*/
 						}/*end if-else add&update&delete*/

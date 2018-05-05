@@ -2,28 +2,26 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="search_forum.php";
 		$page_title="forum";
 		include("menu.php");
-		include("../function.js");
 	?>
 	<title>课题搜索 - SabahTCM</title>
 </head>
 
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="search_forum.php"><i class="icon-question icon-large"></i>&nbsp;课题搜索</a>&nbsp;&nbsp;	
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
+		<a href="search_forum.php"><i class="icon-question icon-large"></i>&nbsp;课题搜索</a>&nbsp;&nbsp;	
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="搜索课题" title="搜索有关课题">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
-		</form>.
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="搜索课题" title="搜索有关课题">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
+		</form>
 	</div>
 
 	<div id="body">	
@@ -31,23 +29,27 @@
 			<p><a href="forum.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
 		</div>
 
-		<div class="content" style="margin-right: 15%">
+		<div class="content">
 			<?php
 				$submit=isset($_POST['submit'])?$_POST['submit']:NULL;
 				$top=isset($_POST['search_topic'])?$_POST['search_topic']:NULL;
 				if($submit!=NULL || isset($_SESSION['search_topic'])){
 					$_SESSION['search_topic']=isset($top)?$top:$_SESSION['search_topic'];
 					$kw=$_SESSION['search_topic'];
-					$sql="SELECT * FROM topic WHERE topic LIKE '%$kw%'";
+					$sql="SELECT * FROM topic WHERE topic LIKE '%$kw%' AND isReview=1";
 					$query=mysqli_query($conn,$sql) or die(mysqli_error($conn));
 			?>
-					<table id="forum" width="95%" border="1" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+					<table id="forum" width="100%" border="1" align="center" cellpadding="3" cellspacing="1">
 						<thead><tr>
-							<th width="40%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(0)"><strong>课题</strong></th>
-							<th width="10%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(1)"><strong>分类</strong></th>
-							<th width="5%" bgcolor="#E6E6E6" style="text-align: center;" onclick="sortTable(2)"><strong>回复</strong></th>
-							<th width="20%" colspan="2" bgcolor="#E6E6E6"  style="text-align: center;" onclick="sortTable(4)"><strong>创建</strong></th>
-							<th width="20%" colspan="2" bgcolor="#E6E6E6"  style="text-align: center;" onclick="sortTable(6)"><strong>最后回复</strong></th>
+							<th width="40%" onclick="sortTable(0)">课题&nbsp;<i class="icon-sort icon-small"></th>
+							<th width="10%" onclick="sortTable(1)">分类<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
+							<th width="10%" onclick="sortTable(2)">回复<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
+							<!--column of create&reply of dekstop-->
+							<th class="forum_site" width="20%" colspan="2" onclick="sortTable(4)">创建&nbsp;<i class="icon-sort icon-small"></th>
+							<th class="forum_site" width="20%" colspan="2" onclick="sortTable(6)">最后回复&nbsp;<i class="icon-sort icon-small"></th>
+							<!--column of create&reply of mobile-->
+							<th class="forum_phone" width="20%" onclick="sortTable(4)">创建&nbsp;<i class="icon-sort icon-small"></th>
+							<th class="forum_phone" width="20%" onclick="sortTable(6)">最后回复&nbsp;<i class="icon-sort icon-small"></th>
 						</tr></thead><tbody>
 			<?php
 						while($rows=mysqli_fetch_array($query)){
@@ -78,35 +80,37 @@
 								$comment_user="-";
 							}
 							else{
-								$ans_user_show=mysqli_query($conn,"SELECT username FROM user WHERE user_id='$comment_user_id' ")or die(mysqli_error($conn));
-								while($catch3=mysqli_fetch_assoc($ans_user_show)){
+								$comment_user_show=mysqli_query($conn,"SELECT username FROM user WHERE user_id='$comment_user_id' ")or die(mysqli_error($conn));
+								while($catch3=mysqli_fetch_assoc($comment_user_show)){
 									$comment_user=$catch3['username'];
 								}
 							}
 			?>
-							<tr>
-								<td bgcolor="#FFFFFF">&nbsp;&nbsp;<?php echo $topic;?>&nbsp;&nbsp;<a href="topic_view.php?id=<?php echo $topic_id;?>"><i class="icon-signin icon-large"></i></a><BR></td>
-								<td align="center" bgcolor="#FFFFFF"><?php echo $topic_category_cn; ?></td>
-								<td align="center" bgcolor="#FFFFFF"><?php echo $reply; ?></td>
-								<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $topic_user;?></td>
-								<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $topic_time;?></td>
-								<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $comment_user;?></td>
-								<td width="10%" align="center" bgcolor="#FFFFFF"><?php echo $comment_time;?></td>
+							<tr style="background-color: #FFFFFF">
+								<td>&nbsp;<?php echo $topic;?><span class="break"></br></span>&nbsp;<a href="topic_view.php?id=<?php echo $topic_id;?>"><i class="icon-signin icon-large"></i></a><BR></td>
+								<td align="center"><?php echo $topic_category_cn; ?></td>
+								<td align="center"><?php echo $reply; ?></td>
+								<!--column of create&reply of dekstop-->
+								<td class="forum_site" width="10%" align="center"><?php echo $topic_user;?></td>
+								<td class="forum_site" width="10%" align="center"><?php echo $topic_time;?></td>
+								<td class="forum_site" width="10%" align="center"><?php echo $comment_user;?></td>
+								<td class="forum_site" width="10%" align="center"><?php echo $comment_time;?></td>
+								<!--column of create&reply of mobile-->
+								<td class="forum_phone"align="center"><?php echo $topic_user.'</br>'.$topic_time;?></td>
+								<td class="forum_phone" align="center"><?php echo $comment_user.'</br>'.$comment_time;?></td>
 							</tr>
 			<?php
 						}/*end while list*/
 						mysqli_close($conn);
 			?>
-						</tbody><tfoot><tr>
-							<td colspan="7" align="right" bgcolor="#E6E6E6">&nbsp;</td>
+						</tbody><tfoot style="background-color: #E6E6E6"><tr>
+							<td colspan="7">&nbsp;</td>
 						</tr></tfoot>
 					</table>
-					</br>
 			<?php
 				}
 			?>
 		</div>
-		</br></br>
 	</div>
 	<?php
 		include ("footer.php");

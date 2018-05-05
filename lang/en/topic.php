@@ -32,7 +32,7 @@
 		<?php 
 			if($_GET['category']=="Question"){
 		?>
-			<a href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;
+				<a href="topic.php?category=Question"><i class="icon-question icon-large"></i>&nbsp;Question</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb Question*/
 			elseif($_GET['category']=="Opinion and Suggestion"){
@@ -42,12 +42,10 @@
 			}/*end breadcrumb Opinion and Suggestion*/
 		?>	
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
 		</form>
 	</div>
 
@@ -60,7 +58,7 @@
 		<?php 
 			if($_GET['category']=="Question"){
 		?>
-				<div class="content" style="background:none; margin-right">
+				<div class="content" style="margin-right">
 					<a class="btn btn-info pull-right" href="add_topic.php" ><i class="icon-plus icon-large"></i>&nbsp;Add Question</a>
 					</br>
 					</br>
@@ -69,7 +67,7 @@
 			}/*end add topic Question*/
 			elseif($_GET['category']=="Opinion and Suggestion"){
 		?>
-				<div class="content" style="background:none; margin-right">
+				<div class="content" style="margin-right">
 					<a class="btn btn-info pull-right" href="add_topic.php" ><i class="icon-plus icon-large"></i>&nbsp;Add Topic</a>
 					</br>
 					</br>
@@ -79,17 +77,21 @@
 		?>
 		</br>
 		
-		<div class="content" style="margin-right: 15%">
+		<div class="content">
 			<?php 
 				$category=$_GET['category'];
 				$topic_query=mysqli_query($conn,"SELECT * FROM topic WHERE category='$category' and isReview=1 ORDER BY latest_reply_time DESC")or die(mysqli_error($conn));
 			?>
-				<table id="forum" width="95%" border="1" align="center" cellpadding="3" cellspacing="1">
-					<thead style="background-color: #E6E6E6"><tr>
-						<th width="50%" style="text-align: center;" onclick="sortTable(0)"><strong>Topic&nbsp;<i class="pull-right col-lg-4 icon-sort icon-small"></strong></th>
-						<th width="5%" style="text-align: center;" onclick="sortTable(1)"><strong>Replies</strong></th>
-						<th width="20%" colspan="2" style="text-align: center;" onclick="sortTable(3)"><strong>Created By</strong></th>
-						<th width="20%" colspan="2" style="text-align: center;" onclick="sortTable(5)"><strong>Last Replied By</strong></th>
+				<table id="forum" width="100%" border="1" align="center" cellpadding="3" cellspacing="1">
+					<thead><tr>
+						<th width="50%" onclick="sortTable(0)">Topic&nbsp;<i class="icon-sort icon-small"></th>
+						<th width="10%" onclick="sortTable(1)">Replies<span class="break"></br></span>&nbsp;<i class="icon-sort icon-small"></th>
+						<!--column of create&reply of dekstop-->
+						<th class="forum_site" width="20%" colspan="2" onclick="sortTable(3)">Created By&nbsp;<i class="icon-sort icon-small"></th>
+						<th class="forum_site" width="20%" colspan="2" onclick="sortTable(5)">Last Replied By&nbsp;<i class="icon-sort icon-small"></th>
+						<!--column of create&reply of dekstop-->
+						<th class="forum_phone" width="20%" onclick="sortTable(3)">Created By&nbsp;<i class="icon-sort icon-small"></th>
+						<th class="forum_phone" width="20%" onclick="sortTable(5)">Last Replied By&nbsp;<i class="icon-sort icon-small"></th>
 					</tr></thead><tbody>
 			<?php
 					while($rows=mysqli_fetch_array($topic_query)){
@@ -123,16 +125,20 @@
 						<tr style="background-color: #FFFFFF">
 							<td>&nbsp;&nbsp;<?php echo $topic;?>&nbsp;&nbsp;<a href="topic_view.php?id=<?php echo $topic_id;?>"><i class="icon-signin icon-large"></i></a><BR></td>
 							<td align="center"><?php echo $reply; ?></td>
-							<td width="10%" align="center"><?php echo $topic_user;?></td>
-							<td width="10%" align="center"><?php echo $topic_time;?></td>
-							<td width="10%" align="center"><?php echo $comment_user;?></td>
-							<td width="10%" align="center"><?php echo $comment_time;?></td>
+							<!--column of create&reply of dekstop-->
+							<td class="forum_site" width="10%" align="center"><?php echo $topic_user;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $topic_time;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $comment_user;?></td>
+							<td class="forum_site" width="10%" align="center"><?php echo $comment_time;?></td>
+							<!--column of create&reply of mobile-->
+							<td class="forum_phone" align="center"><?php echo $topic_user.'</br>'.$topic_time;?></td>
+							<td class="forum_phone" align="center"><?php echo $comment_user.'</br>'.$comment_time;?></td>
 						</tr>
 			<?php
 					}/*end while list*/
 					mysqli_close($conn);
 			?>
-					</tbody><tfoot style="background-color: #E6E6E6"><tr>
+					</tbody><tfoot><tr>
 						<td colspan="6">&nbsp;</td>
 					</tr></tfoot>
 				</table>

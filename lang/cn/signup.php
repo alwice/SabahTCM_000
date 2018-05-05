@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="signup.php";
 		include ("menu.php");
@@ -9,63 +10,67 @@
 	<title>注册 - SabahTCM</title>
 </head>
 <body>
-	<br>
-	<div style="background:lightblue" class="alert alert-info">注册</div>
 	<?php
 		$username=isset($_POST['username']) ? $_POST['username'] : NULL;
 		$email=isset($_POST['email']) ? $_POST['email'] : NULL;
 		$squestion=isset($_POST['squestion']) ? $_POST['squestion'] : NULL;
 		$sanswer=isset($_POST['sanswer']) ? $_POST['sanswer'] : NULL;
 	?>
-	</br>
-
+	
 	<div id="body">
-		</br>
+		</br><span class="nav_break"></br></br></br></br></br></span>
 		<div class="sidebar">	 
 			<p><a href="login.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
 		</div>
-		<div id="home" style="width:700px">
+		<div id="small_window">
 			<div id="hd">请填以下资料</div>
-			</br></br>
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
+			</br><span class="form_break"></br></span>
+			<form id="signup" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<!--Username-->
 				<div class="form-group">
-					<label style="padding-left: 125px">用户名：</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="用户名" title="最少8个字" required>
+					<label>用户名：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $username;?>" name="username" minlength="8" placeholder="用户名" title="最少8个字" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 141px">密码：</label>
-					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="至少一个数字，一个大字母，一个小字母，以及最少八个字" required>
+					<label>密码：</label>
+					<input type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="password"  placeholder="Pa55w0rd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="至少一个数字，一个大字母，一个小字母，以及最少八个字" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Password-->
 				<div class="form-group">
-					<label style="padding-left: 110px">确认密码：</label>
-					<input style="width:300px" type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="cpassword" minlength="8" placeholder="Pa55w0rd" title="必须和密码相符" required>
+					<label>确认密码：</label>
+					<input type="password" data-toggle="tooltip" data-placement="right" class="form-control" value="" name="cpassword" minlength="8" placeholder="Pa55w0rd" title="必须和密码相符" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Email-->
 				<div class="form-group">
-					<label style="padding-left: 141px">电邮：</label>
-					<input style="width:300px" type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" required>
+					<label>电邮：</label>
+					<input type="email" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $email;?>" name="email" placeholder="example@email.com" title="必须是符合的电邮" required>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Security Question-->
 				<div class="form-group">
-					<label style="padding-left: 110px">安全问题：</label>
+					<label>安全问题：</label>
 					<?php include "list_squestion.php";?>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
+
 				<!--Security Answer-->
 				<div class="form-group">
-					<label style="padding-left: 110px">安全答案：</label>
-					<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $sanswer;?>" name="sanswer" placeholder="answer" required>
+					<label>安全答案：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" value="<?php echo $sanswer;?>" name="sanswer" placeholder="答案" titile="别让他人知道您的答案" required>
 				</div>
-				<br><br>
-				<div class="form-group" style="padding-top:20px">
-					<button class="form-control" value="action" name="action" type="submit" class="btn btn-save" style="margin-left: 300px"><i class="icon-save icon-large"></i>&nbsp;提交</button>
+				</br><span class="form_break"></br></span>
+
+				<!--submit button-->
+				<div class="form-group" style="padding-top:2%">
+					<button class="form-control" value="action" name="action" type="submit"><i class="icon-save icon-large"></i>&nbsp;提交</button>
 				</div>
 			</form>
 			
@@ -111,7 +116,6 @@
 			?>
 		</div>	
 	</div>			
-	</br>
 	<?php
 		include("footer.php");
 	?>

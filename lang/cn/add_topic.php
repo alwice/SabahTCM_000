@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="add_topic.php";
 		$page_title="forum";
@@ -11,24 +12,24 @@
 </head>
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
 		<?php 
 			if($_SESSION['category_cn']=="问题"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=问题"><i class="icon-question icon-large"></i>&nbsp;问题</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;提问</a>&nbsp;&nbsp;
+				<a href="topic.php?category=问题"><i class="icon-question icon-large"></i>&nbsp;问题</a>&nbsp;&nbsp;>
+				<a href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;提问</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb 问题*/
 			elseif($_SESSION['category_cn']=="意见和建议"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=意见和建议"><i class="icon-question icon-large"></i>&nbsp;意见和建议</a>&nbsp;&nbsp;>
-				<a class="btn btn-home" href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;发表话题</a>&nbsp;&nbsp;
+				<a href="topic.php?category=意见和建议"><i class="icon-question icon-large"></i>&nbsp;意见和建议</a>&nbsp;&nbsp;>
+				<a href="add_topic.php"><i class="icon-question icon-large"></i>&nbsp;发表话题</a>&nbsp;&nbsp;
 		<?php
 			}/*end breadcrumb 意见和建议*/
 		?>
 	</div>
-	</br>
+	
 	<div id="body">
         <div style="background:lightblue" class="alert alert-info">发表课题</div>
 		</br>	 
@@ -36,34 +37,34 @@
 			<p><a href="topic.php?category=<?php echo $_SESSION['category_cn'];?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
 		</div>
 	
-		<div id="home" style="width:600px">
+		<div id="small_window">
 			<div id="hd">请填以下详情</div>		
-			<form class="form-inline" method="POST" action="" enctype="multipart/form-data">
-				<br><br>
+			
+			</br><span class="form_break"></br></span>
+			<form id="topic" class="form-inline" method="POST" action="" enctype="multipart/form-data">
 				<input type="hidden" name="user_id" value="<?php echo $_SESSION['userID']; ?>">	
 				<input type="hidden" name="category" value="<?php echo $_SESSION['category']; ?>">
 				<!--Topic-->
 				<div class="form-group">
-					<label style="padding-left: 80px">课题：</label>
-					<input style="width:350px" type="text" class="form-control" name="topic"  placeholder="主题" required/>
+					<label>课题：</label>
+					<input type="text" class="form-control" name="topic" placeholder="主题" required/>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Topic Describtion-->
 				<div class="form-group">
-					<label  style="padding-left: 80px">详情：</label>
-					<textarea style="width:350px; height:160px" type="text-box" class="form-control" name="topic_details" placeholder="课题详细内容" required/></textarea>
+					<label>详情：</label>
+					<textarea type="text-box" class="form-control" name="topic_details" placeholder="课题详细内容" required/></textarea>
 				</div>
-				<br><br>
-				<p style="text-align: center;">**课题只有在被管理员审核后才会呈现在论坛里。**</p>
-				<div class="control-group">
-					<div class="controls" style="padding-left: 250px" >
+				</br><span class="form_break"></br></span>
+				<p>课题只有在被管理员审核后才会呈现在论坛里。</p>
+				</br>
+				<!--submit button-->
+				<div class="controls">
 					<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;存档</button>
-					</div>
 				</div>
 		    </form>					
 		</div>		
     </div>
-    </br></br>
     <?php 
     	if(isset($_POST['submit'])){
     		$user_id=$_POST['user_id'];

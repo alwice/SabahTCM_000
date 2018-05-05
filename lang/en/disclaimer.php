@@ -16,9 +16,10 @@
 		<a href="disclaimer.php"><i class="icon-question icon-large"></i>&nbsp;Disclaimer</a>&nbsp;&nbsp;
 	</div>
 	</br>
-	<h3>Disclaimer</h3>
+	
 	<div id="body">
-		<div class="content" style="text-align:justify;">	
+		<div class="content">	
+			<h3>Disclaimer</h3>
 			<p>The informations and other content provided on this Site, including information that may be provided on this Site direcly or by linking to third-party websites are provided for informational purposes only. Please consult with a physician or other healthcare professional regarding any medical or health related diagnosis or treatment options.</p>
 			<p>Information provided on this Site and linked websites, including information relating to medical and health conditions, treatments and herbal may be provided in summary form. Information on this Site including any product label or packaging should not be considered as a substitute for advice from a healthcare professional. This Site does not recommend self-management of health issues. Information on this Site is not comprehensive and does not cover all diseases, ailments, physical conditions or their treatment. Contact your healthcare professional promptly should you have any health related questions. Never disregard or delay medical advice based upon information you may have read on this Site.</p>
 			<p>You should not use the information or services on this Site to diagnose or treat any health issues or for prescription of any medication or other treatment. You should always consult with your healthcare professional and read information provided, prior to using any herbal or starting any treatment for a health issue. Individuals are different and may react differently to different herbal. You should consult your physician about interactions between herbal you are taking. Comments made in any forums on this Site by admin or Site users are strictly their own personal views made in their own personal capacity and are not claims made by us or do they represent the position or view of SabahTCM.</p>

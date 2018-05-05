@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="add_herbs.php";
 		$page_title="herbs";
@@ -61,16 +62,17 @@
 	</br>
 
 	<div id="body">
+		</br><span class="nav_break"></br></br></br></br></br></span>
+
         <div style="background:lightblue" class="alert alert-info">增加草药</div>
 		</br>	 
 		<div class="sidebar">	 
 			<p><a href="herbs.php" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
 		</div>
 	
-		<div id="home" style="width:700px">
+		<div id="small_window">
 			<div id="hd">请填以下的草药资料</div>
-	
-			<form class="form-inline" method="POST" action="add_herbs_save.php" enctype="multipart/form-data">
+			<form id="herb" class="form-inline" method="POST" action="add_herbs_save.php" enctype="multipart/form-data">
 				<input type="hidden" name="mode" value="<?php echo $mode;?>">
 				<input type="hidden" name="info_id" value="<?php echo $info_id;?>">		
 				<input type="hidden" name="herb_id" value="<?php echo $herb_id;?>">
@@ -78,88 +80,88 @@
 						
 				<!--Scientific Name-->
 				<div class="form-group">
-					<label style="padding-left: 132px">学名：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填上学名" class="form-control" value="<?php if(isset($sci_name)) echo $sci_name;?>" name="sci_name" placeholder="草药学名" required>
+					<label>学名：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上学名" class="form-control" value="<?php if(isset($sci_name)) echo $sci_name;?>" name="sci_name" placeholder="草药学名" required autofocus />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Local Name-->
 				<div class="form-group">
-					<label style="padding-left: 70px">名称（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文名称而已" class="form-control" value="<?php if(isset($herb_name)) echo $herb_name;?>" name="herb_name" placeholder="英文草药名称" />
+					<label>名称（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文名称而已" class="form-control" value="<?php if(isset($herb_name)) echo $herb_name;?>" name="herb_name" placeholder="英文草药名称" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Local Name in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 132px">名称：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个名称而已" class="form-control" value="<?php if(isset($herb_name_cn)) echo $herb_name_cn;?>" name="herb_name_cn" placeholder="草药名称" />
+					<label>名称：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个名称而已" class="form-control" value="<?php if(isset($herb_name_cn)) echo $herb_name_cn;?>" name="herb_name_cn" placeholder="草药名称" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Other Name-->
 				<div class="form-group">
-					<label style="padding-left: 70px">别称（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填上英文别名" class="form-control" value="<?php if(isset($other_name)) echo $other_name;?>" name="other_name" placeholder="英文草药别名" />
+					<label>别称（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文别名" class="form-control" value="<?php if(isset($other_name)) echo $other_name;?>" name="other_name" placeholder="英文草药别名" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Other Name in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 132px">别称：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填上别名" class="form-control" value="<?php if(isset($other_name_cn)) echo $other_name_cn;?>" name="other_name_cn" placeholder="草药别名" />
+					<label>别称：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上别名" class="form-control" value="<?php if(isset($other_name_cn)) echo $other_name_cn;?>" name="other_name_cn" placeholder="草药别名" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				
 				<!--Family-->
 				<div class="form-group">
-					<label style="padding-left: 70px">科别（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填上英文科别" class="form-control" value="<?php if(isset($family)) echo $family;?>" name="family" placeholder="英文草药科别" />
+					<label>科别（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文科别" class="form-control" value="<?php if(isset($family)) echo $family;?>" name="family" placeholder="英文草药科别" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Family in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 132px">科别：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填上科别" class="form-control" value="<?php if(isset($family_cn)) echo $family_cn;?>" name="family_cn" placeholder="草药科别" />
+					<label>科别：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上科别" class="form-control" value="<?php if(isset($family_cn)) echo $family_cn;?>" name="family_cn" placeholder="草药科别" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Usage Part-->
 				<div class="form-group">
-					<label style="padding-left: 40px">药用部位（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文药用部位而已" class="form-control" value="<?php if(isset($part)) echo $part;?>" name="part" placeholder="英文草药药用部位" />
+					<label>药用部位（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文药用部位而已" class="form-control" value="<?php if(isset($part)) echo $part;?>" name="part" placeholder="英文草药药用部位" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Usage Part in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 102px">药用部位：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个药用部位而已" class="form-control" value="<?php if(isset($part_cn)) echo $part_cn;?>" name="part_cn" placeholder="草药药用部位" />
+					<label>药用部位：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个药用部位而已" class="form-control" value="<?php if(isset($part_cn)) echo $part_cn;?>" name="part_cn" placeholder="草药药用部位" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Function-->
 				<div class="form-group">
-					<label style="padding-left: 70px">功效（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文功效而已" class="form-control" value="<?php if(isset($function)) echo $function;?>" name="function" placeholder="英文草药功效" />
+					<label>功效（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文功效而已" class="form-control" value="<?php if(isset($function)) echo $function;?>" name="function" placeholder="英文草药功效" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Function in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 132px">功效：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个功效而已" class="form-control" value="<?php if(isset($function_cn)) echo $function_cn;?>" name="function_cn" placeholder="草药功效" />
+					<label>功效：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个功效而已" class="form-control" value="<?php if(isset($function_cn)) echo $function_cn;?>" name="function_cn" placeholder="草药功效" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Disease-->
 				<div class="form-group">
-					<label style="padding-left: 70px">主治（英文）：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文主治而已" class="form-control" name="disease" value="<?php if(isset($disease)) echo $disease;?>" placeholder="英文主治疾病" />
+					<label>主治（英文）：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文主治而已" class="form-control" name="disease" value="<?php if(isset($disease)) echo $disease;?>" placeholder="英文主治疾病" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Disease in Chinese-->
 				<div class="form-group">
-					<label style="padding-left: 132px">主治：</label>
-					<input style="width:350px" type="text" data-toggle="tooltip" data-placement="right" title="请填一个主治而已" class="form-control" name="disease_cn" value="<?php if(isset($disease_cn)) echo $disease_cn;?>" placeholder="主治疾病" />
+					<label>主治：</label>
+					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个主治而已" class="form-control" name="disease_cn" value="<?php if(isset($disease_cn)) echo $disease_cn;?>" placeholder="主治疾病" />
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 
 				<!--Image-->
 				<div class="form-group">
@@ -169,13 +171,13 @@
 						 echo '<img style="width:150px; height:150px;margin:0px 40px 0px 250px" src="'. $dir. '/'. $image. '"  /> </br></br>';
 						}
 					?>
-					<label style="padding-left: 132px" >图片：</label>	
-					<input class="form-control"  style="padding-left: 200;width:350px;" type="file" name="image" multiple>
+					<label>图片：</label>	
+					<input class="form-control" style="padding-left: 200;" type="file" name="image" multiple>
 				</div>
-				<br><br>
+				</br><span class="form_break"></br></span>
 				<!--Save, update & delete-->
 				<div class="control-group">
-					<div class="controls" style="padding-left: 300px" >
+					<div class="controls">
 					<?php
 						if(isset($mode) && $mode == 1){
            					$m=$_GET['m'];
@@ -211,7 +213,6 @@
 				</div>
 	   		</form>					
 		</div>
-		</br></br>		
     </div>
 	<?php
 		include("footer.php");

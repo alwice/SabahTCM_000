@@ -58,8 +58,7 @@
 					<textarea type="text-box" class="form-control" name="comment" placeholder="Comment" required ></textarea>
 				</div>
 				</br><span class="form_break"></br></span>
-				<p>The Comment will only shown in Forum after reviewed by admin.</p>
-				</br>
+				
 				<!--submit button-->
 				<div class="controls">
 					<button name="submit" type="submit" class="btn btn-save"><i class="icon-save icon-large"></i>&nbsp;Save</button>

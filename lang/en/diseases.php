@@ -13,7 +13,7 @@
 <body>
 	<div id="body">
 		<div id="main">
-		</br>
+			</br>
 			<div class="sidebar">
 				<h3 style="text-align:center" id="search">Diseases Category</h3>
 				<!--Start listing all herbs-->
@@ -61,8 +61,8 @@
 								}
 				?>
 								<!--print list of local_name-->
-								<p style="padding-bottom:1%"><li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li></p>	
-								</br>
+								<li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp; herb=<?php echo $herb;?>"><?php echo $herb;?></a></li>
+								</br></br>
 								<!--done print list-->
 				<?php
 					 		}/*end while listing*/

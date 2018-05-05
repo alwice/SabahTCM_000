@@ -19,19 +19,17 @@
 		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;Home</a>&nbsp;&nbsp;>
 		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;Forum</a>&nbsp;&nbsp;
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
 		</form>
 	</div>
 	</br>
 	
 	<div id="body">
 		</br></br>
-		<div class="content" style="margin-right: 15%">
+		<div class="content">
 			<form action="" method="get">
 				<?php
 					$cat=mysqli_query($conn,"SELECT * FROM category")or die(mysqli_error($conn));
@@ -39,7 +37,7 @@
 						$category_id=$row['category_id'];
 						$category=$row['category'];
 				?>
-						<p><button class="form-control" name="category" value="<?php echo $category;?>" type="submit" style="margin-left;" formaction="topic.php"><?php echo $category;?></button></p>
+						<p><button class="form-control" name="category" value="<?php echo $category;?>" type="submit" formaction="topic.php"><?php echo $category;?></button></p>
 				<?php
 					}
 				?>

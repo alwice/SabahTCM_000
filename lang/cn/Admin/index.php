@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="index.php";
 		$page_title="index";
@@ -15,7 +15,7 @@
 		</br>
 		<div style="border-radius:12px" id="home">
 			<div class="sidebar">
-				<img src="../../../images/home.jpg" alt="Image">
+				<img src="../../../images/home.jpg" alt="Image">	
 			</div>
 			<div class="content">
 			</br>
@@ -29,7 +29,6 @@
 				<p>Sabah Traditional Chinese Medicine Database（SabahTCM）的特处是让用户能够双语浏览（英文与中文）。此外，论坛是特别设立的，以便用户和管理员们能够交流并且交换意见。</p>
 			</div><!--end content div-->
 		</div><!--end div-->
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

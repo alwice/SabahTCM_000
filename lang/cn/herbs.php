@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="herbs.php";
 		$page_title="herbs";
@@ -24,7 +25,7 @@
 						$herbs_id=$row['herb_id'];
 						$herb_name=$row['local_name_cn'];
 				?>
-						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;详情</i></a></li>
+						<li><a href="herbs.php?id=<?php echo $herbs_id;?>&amp;herb=<?php echo $herb_name;?>"><?php echo $herb_name;?><i class="pull-right col-lg-4 icon-expand icon-medium">&nbsp;<span class="herb_detail">详情</span></i></a></li>
 				<?php 
 					}/*end while listing*/
 				?>
@@ -70,10 +71,10 @@
 						  	<div id="caption"></div>
 						</div>
 						
-						<p style="padding-bottom:4px"><b> 名称：</b><?php echo $herb_name;?></p>
-						<p style="padding-bottom:4px"><b> 别称：</b><?php echo $other_name;?></p>
-						<p style="padding-bottom:4px"><b> 学名：</b><i><?php echo $sci_name;?></i></p>		
-						<p style="padding-bottom:4px"><b> 科别：</b><?php echo $family;?></p>
+						<p><b>名称：</b><?php echo $herb_name;?></p>
+						<p><b>别称：</b><?php echo $other_name;?></p>
+						<p><b>学名：</b><i><?php echo $sci_name;?></i></p>		
+						<p><b>科别：</b><?php echo $family;?></p>
 						</br> 
 						<!--done print herb_list-->
 				<?php 	
@@ -86,9 +87,9 @@
 							$disease=$data['disease_cn'];
 				?>	
 							<!--print herb_info-->
-							<p style="padding-bottom:4px"><b> 药用部位：</b><?php echo $part;?></p>
-							<p style="padding-bottom:4px"><b> 功效：</b><?php echo $function;?></p>
-							<p style="padding-bottom:4px"><b> 主治：</b><?php echo $disease;?></p>	
+							<p><b>药用部位：</b><?php echo $part;?></p>
+							<p><b>功效：</b><?php echo $function;?></p>
+							<p><b>主治：</b><?php echo $disease;?></p>	
 							<hr>
 				<?php 		
 						} /* end while print herb_info*/
@@ -96,7 +97,6 @@
 				?>
 			</div><!--end content div-->
 		</div><!--end div-->
-		</br></br>
 	</div><!--end body div-->
 	<?php
 		include("footer.php");

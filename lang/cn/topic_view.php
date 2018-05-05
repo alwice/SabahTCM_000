@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['topic_id']=$_GET['id'];
 		$id=$_SESSION['topic_id'];
@@ -27,28 +28,26 @@
 </head>
 <body>
 	<div id="breadcrumb">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
+		<a href="forum.php"><i class="icon-question icon-large"></i>&nbsp;论坛</a>&nbsp;&nbsp;>
 		<?php 
 			if($_SESSION['category_cn']=="问题"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=问题"><i class="icon-question icon-large"></i>&nbsp;问题</a>&nbsp;&nbsp;>
+				<a href="topic.php?category=问题"><i class="icon-question icon-large"></i>&nbsp;问题</a>&nbsp;&nbsp;>
 		<?php
 			}/*end breadcrumb 问题*/
 			elseif($_SESSION['category_cn']=="意见和建议"){
 		?>
-				<a class="btn btn-home" href="topic.php?category=意见和建议"><i class="icon-question icon-large"></i>&nbsp;意见和建议</a>&nbsp;&nbsp;>
+				<a href="topic.php?category=意见和建议"><i class="icon-question icon-large"></i>&nbsp;意见和建议</a>&nbsp;&nbsp;>
 		<?php
 			}/*end breadcrumb 意见和建议*/
 		?>
-		<a class="btn btn-home" href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;
+		<a href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="搜索课题" title="搜索有关课题">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="搜索课题" title="搜索有关课题">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
 		</form>
 	</div>
 	
@@ -56,7 +55,7 @@
 		<div class="sidebar">	 
 			<p><a href="topic.php?category=<?php echo $_SESSION['category_cn'];?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;回去</a></p>
 		</div>
-		<div class="content" style="margin-right: 15%">
+		<div class="content">
 			<?php
 				//topic part
 				$topic_show=mysqli_query($conn,"SELECT * FROM topic WHERE topic_id='$id'")or die(mysqli_error($conn));	
@@ -73,7 +72,7 @@
 					}
 				}
 			?>
-			<table width="50%" border="1" align="center" cellpadding="0" cellspacing="1"><tr><td>
+			<table class="forum_topic" border="1" align="center" cellpadding="0" cellspacing="1"><tr><td>
 				<table width="100%" border="1" bordercolor="#FFFFFF" cellpadding="3" cellspacing="1" bordercolor="1" style="background-color: #F8F7F1">
 					<col width='80'>
 					<tr>
@@ -108,7 +107,7 @@
 						$comment_user=$catch2['username'];
 					}
 			?>
-					<table width="50%" border="1" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC"><tr><td>
+					<table class="forum_topic" border="1" align="center" cellpadding="0" cellspacing="1"><tr><td>
 						<table width="100%" border="1" cellpadding="3" bordercolor="#FFFFFF" cellspacing="1" style="background-color: #F8F7F1">
 							<tr><col width='80'>
 								<td><strong>回复</strong></td>
@@ -127,6 +126,8 @@
 							</tr>
 						</table>
 					</td></tr></table>
+					</br>
+
 			<?php
 				}/*end while show answer*/
 				mysqli_close($conn);
@@ -134,21 +135,20 @@
 			<?php 
 				if($_SESSION['category_cn']=="问题"){
 			?>
-					<div class="content" style="background:none; margin-right">
+					<div class="content" style="margin-right">
 						<a class="btn btn-info pull-right" href="add_comment.php"><i class="icon-plus icon-large"></i>&nbsp;回答</a>
 					</div>
 			<?php
 				}/*end add topic 问题*/
 				else if($_SESSION['category_cn']=="意见和建议"){
 			?>
-					<div class="content" style="background:none; margin-right">
+					<div class="content" style="margin-right">
 						<a class="btn btn-info pull-right" href="add_comment.php"><i class="icon-plus icon-large"></i>&nbsp;发表评论</a>
 					</div>
 			<?php
 				}/*end add topic 意见和建议*/
 			?>
 		</div>
-		</br>
 	</div>
 	<?php
 		include ("footer.php");

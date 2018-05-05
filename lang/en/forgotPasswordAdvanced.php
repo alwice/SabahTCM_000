@@ -53,7 +53,7 @@
 				</div>
 
 				<!--submit button-->
-				<div class="form-group" style="padding-top:20px">
+				<div class="form-group" style="padding-top:2%">
 					<button class="form-control" value="action" name="action" type="submit"><i class="icon-signal icon-large"></i>&nbsp;Confirm</button>
 				</div>
 			</form>

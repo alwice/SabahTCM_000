@@ -55,7 +55,7 @@
 					<textarea type="text-box" class="form-control" name="topic_details" placeholder="Details of Topic" required ></textarea>
 				</div>
 				</br><span class="form_break"></br></span>
-				<p>The Topic will only shown in Forum after reviewed by admin.</p>
+				
 				</br>
 				<!--submit button-->
 				<div class="controls">

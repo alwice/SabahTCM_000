@@ -36,8 +36,8 @@
 	</br>
 	<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 	<div id="body">
-		<div class="content" style="text-align:justify;">	
-			<h4>Terms of Use Agreement</h4>
+		<div class="content">	
+			<h3>Terms of Use Agreement</h3>
 			<b>Table of Contents</b>
 			
 			<ol><li><a href='#purpose'>Purpose</a></li>

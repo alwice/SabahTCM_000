@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" conetent="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		$_SESSION['pages']="tc.php";
 		$page_title="information";
@@ -29,14 +30,14 @@
 </head>
 <body>
 	<div id="breadcrum">
-		<a class="btn btn-home" href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
-		<a class="btn btn-home" href="tc.php"><i class="icon-question icon-large"></i>&nbsp;服务条款</a>&nbsp;&nbsp;
+		<a href="index.php"><i class="icon-home icon-large"></i>&nbsp;首页</a>&nbsp;&nbsp;>
+		<a href="tc.php"><i class="icon-question icon-large"></i>&nbsp;服务条款</a>&nbsp;&nbsp;
 	</div>
 	</br>
 	<button onclick="topFunction()" id="topBtn" title="Go to top">顶端</button>
 	<div id="body">
-		<div class="content" style="text-align:justify; padding-left:5px">	
-			<h4>服务条款</h4>
+		<div class="content">	
+			<h3>服务条款</h3>
 			<b>目录</b>
 			
 			<ol><li><a href='#purpose'>用意</a></li>

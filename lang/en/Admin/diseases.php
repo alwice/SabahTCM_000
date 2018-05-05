@@ -60,8 +60,8 @@
 								}
 				?>
 								<!--print list of local_name-->
-								<p style="padding-bottom:2px"><li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp;herb=<?php echo $herb;?>"><?php echo $herb;?></a></li></p>	
-								</br>
+								<li style="display:inline-block"><a href="diseases.php?disease=<?php echo $disease;?>&amp;herb=<?php echo $herb;?>"><?php echo $herb;?></a></li>	
+								</br></br>
 								<!--done print list-->
 				<?php
 					 		}/*end while listing*/

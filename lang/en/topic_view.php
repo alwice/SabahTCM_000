@@ -44,12 +44,10 @@
 		?>
 		<a href="topic_view.php?id=<?php echo $id;?>"><i class="icon-question icon-large"></i>&nbsp;<?php echo $topic;?></a>&nbsp;&nbsp;
 	</div>
-	<div>
-		<form style="text-align: right;" class="form-inline" action="search_forum.php" method="post">
-			<div class="form-group">
-				<input style="width:300px" type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
-				<button style="background-color:skyblue;" class="form-control" type="submit" name="submit" value="submit"><i style="color:white;" class="icon-search icon-large"></i></button>
-			</div>
+	<div id="forum_search">
+		<form class="form-inline" action="search_forum.php" method="post">
+			<input type="text" data-toggle="tooltip" data-placement="right" class="form-control" name="search_topic" placeholder="Search Topic" title="Search Related Topic">
+			<button class="form-control" type="submit" name="submit" value="submit"><i class="icon-search icon-large"></i></button>
 		</form>
 	</div>
 	
@@ -57,7 +55,7 @@
 		<div class="sidebar">	 
 			<p><a href="topic.php?category=<?php echo $_SESSION['category'];?>" class="btn btn-info"><i class="icon-arrow-left icon-large"></i>&nbsp;Back</a></p>
 		</div>
-		<div class="content" style="margin-right: 15%">
+		<div class="content">
 			<?php
 				//topic part
 				$question_show=mysqli_query($conn,"SELECT * FROM topic WHERE topic_id='$id'")or die(mysqli_error($conn));	
@@ -74,8 +72,7 @@
 					}
 				}
 			?>
-			<table width="50%" border="1" align="center" cellpadding="0" cellspacing="1" bg
-			color="#CCCCCC"><tr><td>
+			<table class="forum_topic" border="1" align="center" cellpadding="0" cellspacing="1"><tr><td>
 				<table width="100%" border="1" bordercolor="#FFFFFF" cellpadding="3" cellspacing="1" bordercolor="1" style="background-color: #F8F7F1">
 					<col width='80'>
 					<tr>
@@ -110,7 +107,7 @@
 						$comment_user=$catch2['username'];
 					}
 			?>
-					<table width="50%" border="1" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC"><tr><td>
+					<table class="forum_topic" border="1" align="center" cellpadding="0" cellspacing="1"><tr><td>
 						<table width="100%" border="1" cellpadding="3" bordercolor="#FFFFFF" cellspacing="1" style="background-color: #F8F7F1">
 							<tr><col width='80'>
 								<td><strong>Respond</strong></td>
@@ -129,6 +126,7 @@
 							</tr>
 						</table>
 					</td></tr></table>
+				</br>
 					
 			<?php
 				}/*end while show answer*/
@@ -137,14 +135,14 @@
 			<?php 
 				if($_SESSION['category']=="Question"){
 			?>
-					<div class="content" style="background:none; margin-right">
-						<a class="btn btn-info pull-right" href="add_comment.php?id=<?php echo $id;?>" ><i class="icon-plus icon-large"></i>&nbsp;Add Answer</a>
+					<div class="content" style="margin-right">
+						<a class="btn btn-info pull-right" href="add_comment.php?id=<?php echo $id;?>"><i class="icon-plus icon-large"></i>&nbsp;Add Answer</a>
 					</div>
 			<?php
 				}/*end add topic Question*/
 				else if($_SESSION['category']=="Opinion and Suggestion"){
 			?>
-					<div class="content" style="background:none; margin-right">
+					<div class="content" style="margin-right">
 						<a class="btn btn-info pull-right" href="add_comment.php?id=<?php echo $id;?>" ><i class="icon-plus icon-large"></i>&nbsp;Add Comment</a>
 					</div>
 			<?php
