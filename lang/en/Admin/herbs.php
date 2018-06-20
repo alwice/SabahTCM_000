@@ -52,7 +52,9 @@
 							$list_id=$data1['herb_id'];
 							$herb_name=$data1['local_name'];
 							$other_name=$data1['other_name'];
-							$sci_name=$data1['scientific_name'];
+							$sci_name_gs=$data1['scientific_gen_spec'];
+							$sci_name_var=$data1['scientific_var'];
+							$sci_name_cv=$data1['scientific_cv'];
 							$family=$data1['family'];
 							$image=$data1['image'];
 						}
@@ -81,7 +83,16 @@
 
 						<p><b> Local Name: </b><span class="herb_break"></br></span><?php echo $herb_name;?></p>
 						<p><b> Other Name: </b><span class="herb_break"></br></span><?php echo $other_name;?></p>
-						<p><b> Scientific Name: </b><span class="herb_break"></br></span><i><?php echo $sci_name;?></i></p>	
+						<p><b> Scientific Name: </b><span class="herb_break"></br></span>
+							<?php 
+								if($sci_name_var==NULL){
+									echo "<i>".$sci_name_gs."</i> ".$sci_name_cv;
+								}
+								else{
+									echo "<i>".$sci_name_gs."</i> var. <i>".$sci_name_var."</i> ".$sci_name_cv;
+								}
+							?>
+						</p>	
 						<p><b> Family: </b><span class="herb_break"></br></span><?php echo $family;?></p>
 						</br> 
 						<!--done print herb_list-->

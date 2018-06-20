@@ -52,7 +52,9 @@
 							$list_id=$data1['herb_id'];
 							$herb_name=$data1['local_name_cn'];
 							$other_name=$data1['other_name_cn'];
-							$sci_name=$data1['scientific_name'];
+							$sci_name_gs=$data1['scientific_gen_spec'];
+							$sci_name_var=$data1['scientific_var'];
+							$sci_name_cv=$data1['scientific_cv'];
 							$family=$data1['family_cn'];
 							$image=$data1['image'];
 						}
@@ -81,7 +83,16 @@
 						
 						<p><b>名称：</b><?php echo $herb_name;?></p>
 						<p><b>别称：</b><?php echo $other_name;?></p>
-						<p><b>学名：</b><i><?php echo $sci_name;?></i></p>		
+						<p><b>学名：</b>
+							<?php 
+								if($sci_name_var==NULL){
+									echo "<i>".$sci_name_gs."</i> ".$sci_name_cv;
+								}
+								else{
+									echo "<i>".$sci_name_gs."</i> var. <i>".$sci_name_var."</i> ".$sci_name_cv;
+								}
+							?>
+						</p>		
 						<p><b>科别：</b><?php echo $family;?></p>
 						</br> 
 						<!--done print herb_list-->

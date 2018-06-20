@@ -30,7 +30,9 @@
 				/*get herb_list*/
 				$herb_list_information=mysqli_query($conn,"SELECT * FROM herb_list WHERE herb_id='$herb_id'")or die(mysqli_error($conn));
 				while($data1=mysqli_fetch_array($herb_list_information)){
-					$sci_name=$data1['scientific_name'];
+					$sci_name_gs=$data1['scientific_gen_spec'];
+					$sci_name_var=$data1['scientific_var'];
+					$sci_name_cv=$data1['scientific_cv'];
 					$image=$data1['image'];
 					$herb_name=$data1['local_name'];
 					$other_name=$data1['other_name'];
@@ -46,7 +48,9 @@
 				/*get herb_list*/
 				$herb_list_information=mysqli_query($conn,"SELECT * FROM herb_list WHERE herb_id='$herb_id'")or die(mysqli_error($conn));
 				while($data1=mysqli_fetch_array($herb_list_information)){
-					$sci_name=$data1['scientific_name'];
+					$sci_name_gs=$data1['scientific_gen_spec'];
+					$sci_name_var=$data1['scientific_var'];
+					$sci_name_cv=$data1['scientific_cv'];
 					$image=$data1['image'];
 					$herb_name=$data1['local_name'];
 					$other_name=$data1['other_name'];
@@ -72,6 +76,8 @@
 	
 		<div id="small_window">
 			<div id="hd">请填以下的草药资料</div>
+			</br><span class="form_break"></br></span>	
+	
 			<form id="herb" class="form-inline" method="POST" action="add_herbs_save.php" enctype="multipart/form-data">
 				<input type="hidden" name="mode" value="<?php echo $mode;?>">
 				<input type="hidden" name="info_id" value="<?php echo $info_id;?>">		
@@ -80,100 +86,128 @@
 						
 				<!--Scientific Name-->
 				<div class="form-group">
-					<label>学名：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上学名" class="form-control" value="<?php if(isset($sci_name)) echo $sci_name;?>" name="sci_name" placeholder="草药学名" required autofocus />
-				</div>
+					<fieldset><legend>学名</legend>
+					<!--Genus & Species-->
+					<div class="form-group">
+						<label>属名 & 种加词:</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上属名和种加词" class="form-control" value="<?php if(isset($sci_name_gs)) echo $sci_name_gs;?>" name="sci_name_gs" placeholder="草药属名和种加词" required autofocus/>
+					</div>
+					<!--Variety-->
+					<div class="form-group">
+						<label>变种:</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上变种（可空）" class="form-control" value="<?php if(isset($sci_name_var)) echo $sci_name_var;?>" name="sci_name_var" placeholder="草药变种"/>
+					</div>
+					<!--Variety / Cultivar-->
+					<div class="form-group">
+						<label>命名人:</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上命名人" class="form-control" value="<?php if(isset($sci_name_cv)) echo $sci_name_cv;?>" name="sci_name_cv" placeholder="草药命名人"/>
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 
 				<!--Local Name-->
-				<div class="form-group">
-					<label>名称（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文名称而已" class="form-control" value="<?php if(isset($herb_name)) echo $herb_name;?>" name="herb_name" placeholder="英文草药名称" />
-				</div>
+				<fieldset><legend>名称</legend>	
+					<!--Local Name in EN-->			
+					<div class="form-group">
+						<label>名称（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文名称而已" class="form-control" value="<?php if(isset($herb_name)) echo $herb_name;?>" name="herb_name" placeholder="英文草药名称" />
+					</div>
+					<!--Local Name in CN-->
+					<div class="form-group">
+						<label>名称（中文）:</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个名称而已" class="form-control" value="<?php if(isset($herb_name_cn)) echo $herb_name_cn;?>" name="herb_name_cn" placeholder="草药名称" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
-				<!--Local Name in Chinese-->
-				<div class="form-group">
-					<label>名称：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个名称而已" class="form-control" value="<?php if(isset($herb_name_cn)) echo $herb_name_cn;?>" name="herb_name_cn" placeholder="草药名称" />
-				</div>
-				</br><span class="form_break"></br></span>
-
+				
 				<!--Other Name-->
-				<div class="form-group">
-					<label>别称（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文别名" class="form-control" value="<?php if(isset($other_name)) echo $other_name;?>" name="other_name" placeholder="英文草药别名" />
-				</div>
-				</br><span class="form_break"></br></span>
-				<!--Other Name in Chinese-->
-				<div class="form-group">
-					<label>别称：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上别名" class="form-control" value="<?php if(isset($other_name_cn)) echo $other_name_cn;?>" name="other_name_cn" placeholder="草药别名" />
-				</div>
+				<fieldset><legend>别称</legend>	
+					<!--Other Name in EN-->			
+					<div class="form-group">
+						<label>别称（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文别名" class="form-control" value="<?php if(isset($other_name)) echo $other_name;?>" name="other_name" placeholder="英文草药别名" />
+					</div>
+					<!--Other Name in Chinese-->
+					<div class="form-group">
+						<label>别称（中文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上别名" class="form-control" value="<?php if(isset($other_name_cn)) echo $other_name_cn;?>" name="other_name_cn" placeholder="草药别名" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 				
 				<!--Family-->
-				<div class="form-group">
-					<label>科别（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文科别" class="form-control" value="<?php if(isset($family)) echo $family;?>" name="family" placeholder="英文草药科别" />
-				</div>
-				</br><span class="form_break"></br></span>
-				<!--Family in Chinese-->
-				<div class="form-group">
-					<label>科别：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填上科别" class="form-control" value="<?php if(isset($family_cn)) echo $family_cn;?>" name="family_cn" placeholder="草药科别" />
-				</div>
+				<fieldset><legend>科别</legend>	
+					<!--Family in EN-->			
+					<div class="form-group">
+						<label>科别（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上英文科别" class="form-control" value="<?php if(isset($family)) echo $family;?>" name="family" placeholder="英文草药科别" />
+					</div>
+					<!--Family in Chinese-->
+					<div class="form-group">
+						<label>科别（中文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填上科别" class="form-control" value="<?php if(isset($family_cn)) echo $family_cn;?>" name="family_cn" placeholder="草药科别" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 
 				<!--Usage Part-->
-				<div class="form-group">
-					<label>药用部位（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文药用部位而已" class="form-control" value="<?php if(isset($part)) echo $part;?>" name="part" placeholder="英文草药药用部位" />
-				</div>
-				</br><span class="form_break"></br></span>
-				<!--Usage Part in Chinese-->
-				<div class="form-group">
-					<label>药用部位：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个药用部位而已" class="form-control" value="<?php if(isset($part_cn)) echo $part_cn;?>" name="part_cn" placeholder="草药药用部位" />
-				</div>
+				<fieldset><legend>药用部位</legend>	
+					<!--Usage Part in EN-->	
+					<div class="form-group">
+						<label>药用部位（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文药用部位而已" class="form-control" value="<?php if(isset($part)) echo $part;?>" name="part" placeholder="英文草药药用部位" />
+					</div>
+					<!--Usage Part in Chinese-->
+					<div class="form-group">
+						<label>药用部位（中文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个药用部位而已" class="form-control" value="<?php if(isset($part_cn)) echo $part_cn;?>" name="part_cn" placeholder="草药药用部位" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 
 				<!--Function-->
-				<div class="form-group">
-					<label>功效（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文功效而已" class="form-control" value="<?php if(isset($function)) echo $function;?>" name="function" placeholder="英文草药功效" />
-				</div>
-				</br><span class="form_break"></br></span>
-				<!--Function in Chinese-->
-				<div class="form-group">
-					<label>功效：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个功效而已" class="form-control" value="<?php if(isset($function_cn)) echo $function_cn;?>" name="function_cn" placeholder="草药功效" />
-				</div>
+				<fieldset><legend>功效</legend>
+					<!--Function in EN-->	
+					<div class="form-group">
+						<label>功效（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文功效而已" class="form-control" value="<?php if(isset($function)) echo $function;?>" name="function" placeholder="英文草药功效" />
+					</div>
+					<!--Function in Chinese-->
+					<div class="form-group">
+						<label>功效（中文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个功效而已" class="form-control" value="<?php if(isset($function_cn)) echo $function_cn;?>" name="function_cn" placeholder="草药功效" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 
 				<!--Disease-->
-				<div class="form-group">
-					<label>主治（英文）：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文主治而已" class="form-control" name="disease" value="<?php if(isset($disease)) echo $disease;?>" placeholder="英文主治疾病" />
-				</div>
-				</br><span class="form_break"></br></span>
-				<!--Disease in Chinese-->
-				<div class="form-group">
-					<label>主治：</label>
-					<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个主治而已" class="form-control" name="disease_cn" value="<?php if(isset($disease_cn)) echo $disease_cn;?>" placeholder="主治疾病" />
-				</div>
+				<fieldset><legend>主治</legend>	
+					<!--Disease in EN-->	
+					<div class="form-group">
+						<label>主治（英文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个英文主治而已" class="form-control" name="disease" value="<?php if(isset($disease)) echo $disease;?>" placeholder="英文主治疾病" />
+					</div>
+					<!--Disease in Chinese-->
+					<div class="form-group">
+						<label>主治（中文）：</label>
+						<input type="text" data-toggle="tooltip" data-placement="right" title="请填一个主治而已" class="form-control" name="disease_cn" value="<?php if(isset($disease_cn)) echo $disease_cn;?>" placeholder="主治疾病" />
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 
 				<!--Image-->
-				<div class="form-group">
-					<?php
-						$dir = '../../../pics';
-						if(isset($image) && $image != null){
-						 echo '<img style="width:150px; height:150px;margin:0px 40px 0px 250px" src="'. $dir. '/'. $image. '"  /> </br></br>';
-						}
-					?>
-					<label>图片：</label>	
-					<input class="form-control" style="padding-left: 200;" type="file" name="image" multiple>
-				</div>
+				<fieldset><legend>图片</legend>	
+					<div class="form-group">
+						<?php
+							$dir = '../../../pics';
+							if(isset($image) && $image != null){
+							 echo '<img style="width:150px; height:150px;margin:0px 40px 0px 250px" src="'. $dir. '/'. $image. '"  /> </br></br>';
+							}
+						?>
+						<label>图片：</label>	
+						<input class="form-control" style="padding-left: 200;" type="file" name="image" multiple>
+					</div>
+				</fieldset>
 				</br><span class="form_break"></br></span>
 				<!--Save, update & delete-->
 				<div class="control-group">

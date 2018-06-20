@@ -9,8 +9,10 @@
 
 	$herb_id=$_POST['herb_id'];
 	$info_id=$_POST['info_id'];
-	$sci_name=$_POST['sci_name'];
-
+	$sci_name_gs=$_POST['sci_name_gs'];
+	$sci_name_var=isset($_POST['sci_name_var']) ? $_POST['sci_name_var'] : NULL;	
+	$sci_name_cv=$_POST['sci_name_cv'];
+					
 	$herb_name=isset($_POST['herb_name']) ? $_POST['herb_name'] : NULL;	
 	$other_name=isset($_POST['other_name']) ? $_POST['other_name'] : NULL;
 	$family=isset($_POST['family']) ? $_POST['family'] : NULL;
@@ -49,7 +51,7 @@
 			$sql="UPDATE herb_info SET usage_part='$part', function='$function', disease='$disease', usage_part_cn='$part_cn', function_cn='$function_cn', disease_cn='$disease_cn' WHERE info_id='$info_id'";
 			mysqli_query($conn,$sql)or die(mysqli_error($conn));
 		
-			$sql3="UPDATE herb_list SET scientific_name='$sci_name', local_name='$herb_name', other_name='$other_name', family='$family', local_name_cn='$herb_name_cn', other_name_cn='$other_name_cn', family_cn='$family_cn' WHERE herb_id='$herb_id'";
+			$sql3="UPDATE herb_list SET scientific_gen_spec='$sci_name_gs', scientific_var='$sci_name_var', scientific_cv='$sci_name_cv', local_name='$herb_name', other_name='$other_name', family='$family', local_name_cn='$herb_name_cn', other_name_cn='$other_name_cn', family_cn='$family_cn' WHERE herb_id='$herb_id'";
 			mysqli_query($conn,$sql3)or die(mysqli_error($conn));
 			
 			if($image!=NULL){
@@ -66,9 +68,10 @@
 			echo "<script>alert('Herb\'s Information Saved.'); location.href='herbs.php' </script>";
 		}/*end add herb's data m=2*/
 	}
+
 	else{/*insert new mode*/
 		/*checking if the scientific name ard exist in db or nt*/
-		$sql_sci="SELECT herb_id, local_name FROM herb_list WHERE scientific_name='$sci_name'";
+		$sql_sci="SELECT herb_id, local_name FROM herb_list WHERE scientific_gen_spec='$sci_name_gs' AND scientific_var='$sci_name_var' AND scientific_cv='$sci_name_cv'";
 		$sql_sci_name=mysqli_query($conn,$sql_sci) or die(mysqli_error($conn));
 		while($row=mysqli_fetch_assoc($sql_sci_name)){
 			$id=$row['herb_id'];
@@ -77,8 +80,8 @@
 		}
 		
 		//Writes the information to the database
-		$sql2="INSERT INTO herb_list (scientific_name, image, local_name, other_name, family, local_name_cn, other_name_cn, family_cn)
-			VALUES('$sci_name', '$image', '$herb_name', '$other_name', '$family', '$herb_name_cn', '$other_name_cn', '$family_cn')";
+		$sql2="INSERT INTO herb_list (scientific_gen_spec, scientific_var, scientific_cv, image, local_name, other_name, family, local_name_cn, other_name_cn, family_cn)
+			VALUES('$sci_name_gs', '$sci_name_var', '$sci_name_cv', '$image', '$herb_name', '$other_name', '$family', '$herb_name_cn', '$other_name_cn', '$family_cn')";
 		mysqli_query($conn,$sql2)or die(mysqli_error($conn));
 		$lastID = mysqli_insert_id($conn);
 		/*get the primarykey*/
